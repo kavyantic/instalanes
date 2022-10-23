@@ -1,0 +1,9 @@
+[
+    { "name": "Book A Repair", "link": "/book-repair" },
+    { "name": "Screen Protection", "link": "/screen-protection" },
+
+    { "name": "Shop", "link": "/shop" },
+    { "name": "About Us", "link": "/about-us" },
+
+    { "name": "Blog", "link": "/blogs" }
+]
