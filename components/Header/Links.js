@@ -12,7 +12,7 @@ export default function Links() {
   return (
     <div className="inline-block mx-8">
       {navItems.map(({ name, link }) => (
-        <div className="mx-3 inline-block">
+        <div key={link} className="mx-3 inline-block">
           <Link href={link}>{name}</Link>
         </div>
       ))}
