@@ -1,11 +1,11 @@
+import HeroSection from "../components/HeroSection";
 import Slider from "../components/Slider";
 
 export default function Home() {
   return (
     <div>
-      <div className="container">
-        <Slider />
-      </div>
+      <HeroSection />
+      <Slider />
     </div>
   );
 }

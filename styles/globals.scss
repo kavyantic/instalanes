@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@font-face {
+    font-family: barnd_font;
+    src: url(QarantaBold.otf);
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+$primary: #561E9D;
+$primary-70: hsl(264deg 65% 35% / 70%);
+$secondary: #656565;
+body{
+    font-family: 'Poppins', sans-serif;
+}
+/* this area is for navbar  */
+.brand_navbar{
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 2px 0px 6px 0px #dbdbdb80;
+}
+.nav_link{
+    position: relative;
+    transition: all .3s;
+}
+.nav_link::after{
+    content: "";
+    display: block;
+    width: 00%;
+    height: 00%;
+    background: transparent;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: all .3s;
+    border-top-right-radius: 4px;
+}
+.nav_link::before{
+    content: "";
+    display: block;
+    width: 00%;
+    height: 00%;
+    background: transparent;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-color: transparent;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all .3s;
+    border-bottom-left-radius: 4px;
+}
+.nav_link:hover{
+    color: $primary;
+}
+.nav_link:hover::after, .nav_link:hover::before{
+    width: 50%;
+    height: 50%;
+    border-color: $primary-70;
+}
+.nav_link.active::before{
+    content: "";
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-color: $primary-70;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all .3s;
+    border-radius: 4px !important;
+}
+.nav_link.active::after{
+    content: "";
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-color: $primary-70;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: all .3s;
+    border-radius: 4px !important;
+}
+/* end here */
+/* this area is for hero section  */
+.brand-heading{
+    color: $secondary;
+    font-size: calc(30px + 2vw);
+    text-transform: capitalize;
+}
+.slider_title{
+    color: $secondary;
+    font-size: calc(18px + 1.2vw);
+    text-transform: capitalize;
+    span{
+        font-size: calc(20px + 1.5vw);
+    }
+}
+.brand-heading span, .slider_title span{
+    text-transform: capitalize;
+    color: $primary;
+    font-family: barnd_font;
+}
+/* end here  */
+/* this area is for banner section  */
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    width: 100%;
+    height: calc(280px + 6vw);
+    .option {
+        position: relative;
+        overflow: hidden;
+        min-width: 60px;
+        margin: 10px;
+        background-position: center;
+        cursor: pointer;
+        transition: all .5s;
+        &.active {
+            flex-grow: 10;
+            border-radius: 16px;
+        }
+        &:not(.active) {
+            flex-grow: 1;
+            border-radius: 16px;
+        }
+    }
+}
+/* end here  */
+// this area is for footer 
+footer{
+    background-image: url('../public/footer-bg.png');
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: top;
+    background-size: cover;
+    height: 100%;
+}
+.footer_col{
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    border: 0.8px solid rgba($color: $primary, $alpha: 0.3);
+    box-shadow: 5px 5px 0px 0px $primary;
+}
+.f-heading{
+    font-family: barnd_font;
+}
+// end here 
+// this area is for slick arrows 
+.slick-arrow{
+    transform: translate(0, -100%);
+}
+.slick-prev{
+    left: inherit !important;
+    top: -2rem !important;
+    right: 40px !important;
+    // background-color: red !important;
+    &::before{
+        display: none;
+    }
+    &::after{
+        content: '';
+        width: 25px;
+        height: 25px;
+        transform: rotate(180deg);
+        filter: grayscale(100%);
+        opacity: .5;
+        display: block;
+        background: url(../public/arrow-right.svg)no-repeat center center/contain;
+        transition: all .1s;
+    }
+    &:hover::after{
+        opacity: 1;
+        filter: grayscale(0%);
+    }
+}
+.slick-next{
+    right: 0px !important;
+    top: -2rem !important;
+    &::before{
+        display: none;
+    }
+    &::after{
+        content: '';
+        width: 25px;
+        height: 25px;
+        filter: grayscale(100%);
+        display: block;
+        opacity: .5;
+        background: url(../public/arrow-right.svg)no-repeat center center/contain;
+        transition: all .1s;
+    }
+    &:hover::after{
+        opacity: 1;
+        filter: grayscale(0%);
+    }
+}
+// end here 

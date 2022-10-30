@@ -20,18 +20,14 @@ module.exports = {
     screens: {
       xs: "450px",
       sm: "768px",
-      md: "1080px",
-      lg: "1200px",
+      md: "992px",
+      lg: "1100px",
       xl: "1600px",
     },
     container: {
       center: true,
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
       },
     },
   },
