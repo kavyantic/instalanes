@@ -23,7 +23,7 @@ export default function Footer() {
     <footer className="py-8">
       <div className="container">
         <div className="footer_col p-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
-          <div className="grid grid-cols-12">
+          <div className="grid grid-cols-12 gap-4">
             <div className="pb-6 col-span-full md:pb-0 md:col-span-4 px-4">
               <a
                 rel="noopener noreferrer"

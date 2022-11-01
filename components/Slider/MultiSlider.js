@@ -39,24 +39,26 @@ export default class MultiSlider extends Component {
       prevArrow: <SamplePrevArrow />,
     };
     return (
-      <div className="container">
+      <section>
+        <div className="container">
         <h2 className="slider_title mb-4">popular barand we <span>repair</span></h2>
-        <Slider {...settings}>
-        {offerLInk.map(({ backgroundUrl, link }) => {
-            return (
-              <div key={link} className="mb-2">
-                  <a
-                    rel="noopener noreferrer"
-                    className=""
-                    href={link}
-                  >
-                    <img src={backgroundUrl} alt={backgroundUrl} className="w-full p-2 rounded-2xl"></img>
-                  </a>
-              </div>
-            );
-         })}
-        </Slider>
-      </div>
+          <Slider {...settings}>
+          {offerLInk.map(({ backgroundUrl, link }) => {
+              return (
+                <div key={link} className="mb-2">
+                    <a
+                      rel="noopener noreferrer"
+                      className=""
+                      href={link}
+                    >
+                      <img src={backgroundUrl} alt={backgroundUrl} className="w-full p-2 rounded-2xl"></img>
+                    </a>
+                </div>
+              );
+          })}
+          </Slider>
+        </div>
+      </section>
     );
   }
 }
