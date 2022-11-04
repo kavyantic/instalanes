@@ -1,9 +1,12 @@
-import BlogCard from "../components/Hero/Blog/BlogCard";
-import Brand from "../components/Brands";
-import HeroSection from "../components/HeroSection";
+import BlogCard from "../components/homeComponent/Blog/BlogCard";
+import Brand from "../components/homeComponent/Brands";
+import HeroSection from "../components/homeComponent/HeroSection";
 import Slider from "../components/Slider";
-import Testimonial from "../components/Testimonial";
-import WhyChoose from "../components/WhyChoose";
+import Testimonial from "../components/homeComponent/Testimonial";
+import WhyChoose from "../components/homeComponent/WhyChoose";
+import Layout from "../components/Layout";
+
+
 
 export default function Home() {
   return (
@@ -17,3 +20,13 @@ export default function Home() {
     </div>
   );
 }
+
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
+}
+

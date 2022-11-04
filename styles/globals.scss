@@ -15,6 +15,49 @@ body{
 section{
     background-color: white;
 }
+.brand-btn-secondary{
+    background-color: rgba($color: #fff, $alpha: .45);
+    color: rgba($color: #000000, $alpha: .50);
+    border-radius: 6px;
+    padding: .8rem 1.5rem;
+    border: none;
+    letter-spacing: 0.05em;
+    transition: all .3s;
+    &:hover{
+        background-color: rgba($color: #fff, $alpha: .60)
+    }
+}
+.brand-btn{
+    text-decoration: none;
+    background: linear-gradient(133deg, #271a60 0%, #923cff 30%, #561e9d 100%);
+    background-size: 500%;
+    border-radius: 6px;
+    padding: .8rem 1.5rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.05em;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    transition: all .3s;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover{
+        background-position: 100%;
+    }
+    svg{
+        margin-left: 8px;
+        transition: all .3s;
+    }
+    &:hover > svg{
+        margin-left: 20px;
+        width: 2rem;
+    }
+}
 /* this area is for navbar  */
 .brand_navbar{
     background-color: rgba(255, 255, 255, 0.7);
@@ -97,7 +140,7 @@ section{
 /* this area is for hero section  */
 .brand-heading{
     color: $secondary;
-    font-size: calc(30px + 2vw);
+    font-size: calc(25px + 2vw);
     text-transform: capitalize;
 }
 .textimonial .slider_title{
@@ -105,16 +148,19 @@ section{
 }
 .slider_title{
     color: $secondary;
-    font-size: calc(18px + 1.2vw);
+    font-size: calc(15px + 1.2vw);
     text-transform: capitalize;
     span{
-        font-size: calc(20px + 1.5vw);
+        font-size: calc(18px + 1.5vw);
     }
 }
 .brand-heading span, .slider_title span{
     text-transform: capitalize;
     color: $primary;
     font-family: barnd_font;
+}
+.home_form{
+    background: url('https://s3-alpha-sig.figma.com/img/b2c4/8ac9/b2e96df8479e849bf47f8e943f93055e?Expires=1668384000&Signature=S1cxvT5PPpelBrK2cElLU8ILjUKcAlub76V26qrHkDieAVNzV5HNkEoTD84f60bKrcypaS~wUBsC66J-zvIMrp0kI6R7P-wwKfUWSjXp19PhDUo0o5JotrCRw63xp9vnBNUqcqEQM2D3vViB7CPx~9yXmtCMWC0v35EQDDDhXFpxoONvO2FbidI0Ka3TF01gfDRyneFPtZwnTgCuQlmzCAC0sFzDblkeb~DGvQJE3cut5dOYok5uWhmCdcuVTx4Mm1Fpu~yvOkrxzdhc8c4SQoxfxQMQ5U4oeR2OW9M0dZj19qCAq7UtaQ94NuforOJvBtvD5cq4iizO8w19maEDbw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA') no-repeat center center/cover;
 }
 /* end here  */
 /* this area is for banner section  */
@@ -124,22 +170,26 @@ section{
     align-items: stretch;
     overflow: hidden;
     width: 100%;
-    height: calc(280px + 6vw);
+    height: 100%;
+    min-height: calc(80px + 20vw);
     .option {
         position: relative;
         overflow: hidden;
-        min-width: 60px;
-        margin: 10px;
+        min-width: calc(25px + 2vw);
+        margin: 0px 10px;
+        @media(max-width: 450px){
+            margin: 0px 4px;
+        }
         background-position: center;
         cursor: pointer;
         transition: all .5s;
         &.active {
             flex-grow: 10;
-            border-radius: 16px;
+            border-radius: calc(6px + .5vw);
         }
         &:not(.active) {
             flex-grow: 1;
-            border-radius: 16px;
+            border-radius: calc(6px + .5vw);
         }
     }
 }
@@ -242,6 +292,87 @@ footer{
         box-shadow: 0px 0px 10px 0px rgba($color: $secondary, $alpha: 0.2) !important;
         border-radius: 24px;
         padding: 5px 20px !important;
+    }
+}
+// end here 
+// this area is for auth section 
+.authBg{
+    background: url("https://drive.google.com/uc?export=view&id=1d47mwg7MgrRhZBFqEjcPqXf2a0rTcfRX")no-repeat center center/cover;
+    width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.white-glass{
+    background-color: rgba($color: #fff, $alpha: .45);
+    backdrop-filter: blur(6px);
+}
+.black-glass{
+    background-color: rgba($color: #000000, $alpha: .20);
+    backdrop-filter: blur(6px);
+}
+.traplace{
+    ::placeholder {
+            color: rgba($color: #fff, $alpha: .50);
+            opacity: 1;
+        }
+        
+        :-ms-input-placeholder {
+            color: rgba($color: #fff, $alpha: .50);
+        }
+        
+        ::-ms-input-placeholder {
+            color: rgba($color: #fff, $alpha: .50);
+        }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+// end here 
+// this area is for book a repair 
+.book_a_repair_bg{
+    background: url("../public/book_a_repair_bg.webp")no-repeat center center/cover;
+    width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    backdrop-filter: blur(4px);
+    margin-right: 20px;
+    position: relative;
+    z-index: 10;
+    &::before{
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: red;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        z-index: 1;
     }
 }
 // end here 
