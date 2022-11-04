@@ -37,9 +37,24 @@ export default class MultiSlider extends Component {
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
     };
+    
     return (
-      <section>
+      <section className="mt-4 lg:mt-8">
         <div className="container">
         <h2 className="slider_title mb-4">popular barand we <span>repair</span></h2>
           <Slider {...settings}>
