@@ -1,7 +1,11 @@
+import { useRouter } from "next/router";
 import React from "react";
+import { useSelector } from "react-redux";
+import { useRegisterMutation } from "../../app/store/apiSlice";
 
 export default function SignUp({ formTitle, onSubmit }) {
-  
+ 
+
   return (
     <div className="authBg">
       <div className="container">
@@ -87,3 +91,5 @@ and
     </div>
   );
 }
+
+

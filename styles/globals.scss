@@ -375,4 +375,8 @@ input[type=number] {
         z-index: 1;
     }
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }
 // end here 

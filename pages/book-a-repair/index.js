@@ -24,7 +24,7 @@ export default function BookARepair() {
     )
 }
 
-BookARepair.getLayout = function (page) {
+BookARepair.getLayout = function(page) {
     return (
         <BookRepairLayout>
             {page}

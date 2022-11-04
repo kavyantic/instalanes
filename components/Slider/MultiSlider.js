@@ -5,7 +5,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block",}}
+      style={{ ...style, display: "block" }}
       onClick={onClick}
     />
   );
@@ -16,17 +16,28 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", }}
+      style={{ ...style, display: "block" }}
       onClick={onClick}
     />
   );
 }
 const offerLInk = [
-  {link:"",backgroundUrl:"https://images.unsplash.com/photo-1610653216265-74079d187414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"},
-  {link:"",backgroundUrl:"https://images.unsplash.com/photo-1610653216265-74079d187414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"},
-  {link:"",backgroundUrl:"https://images.unsplash.com/photo-1610653216265-74079d187414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"},
-  {link:"",backgroundUrl:"https://images.unsplash.com/photo-1610653216265-74079d187414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"},
-  {link:"",backgroundUrl:"https://images.unsplash.com/photo-1610653216265-74079d187414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"},
+  {
+    link: "",
+    backgroundUrl: "/offers/b1.png",
+  },
+  {
+    link: "",
+    backgroundUrl: "offers/b2.png",
+  },
+  {
+    link: "",
+    backgroundUrl: "offers/b3.png",
+  },
+  {
+    link: "",
+    backgroundUrl: "offers/b4.png",
+  },
 ];
 export default class MultiSlider extends Component {
   render() {
@@ -41,21 +52,23 @@ export default class MultiSlider extends Component {
     return (
       <section>
         <div className="container">
-        <h2 className="slider_title mb-4">popular barand we <span>repair</span></h2>
+          <h2 className="slider_title mb-4">
+            popular barand we <span>repair</span>
+          </h2>
           <Slider {...settings}>
-          {offerLInk.map(({ backgroundUrl, link }) => {
+            {offerLInk.map(({ backgroundUrl, link }) => {
               return (
                 <div key={link} className="mb-2">
-                    <a
-                      rel="noopener noreferrer"
-                      className=""
-                      href={link}
-                    >
-                      <img src={backgroundUrl} alt={backgroundUrl} className="w-full p-2 rounded-2xl"></img>
-                    </a>
+                  <a rel="noopener noreferrer" className="" href={link}>
+                    <img
+                      src={backgroundUrl}
+                      alt={backgroundUrl}
+                      className="w-full p-2 rounded-2xl"
+                    ></img>
+                  </a>
                 </div>
               );
-          })}
+            })}
           </Slider>
         </div>
       </section>

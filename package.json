@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server-start": "cross-env NODE_ENV=production node server",
+    "server-dev": "node server",
+    "nodemon-start": "cross-env NODE_ENV=production nodemon server",
+    "nodemon-dev": "nodemon server",
+    "nodemon": "corss-env CLIENT=false nodemon server",
+    "nodemon-server-only": "nodemon server/server.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
@@ -19,6 +25,7 @@
     "react-dom": "18.2.0",
     "react-redux": "^8.0.4",
     "react-slick": "^0.29.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.55.0",
     "slick-carousel": "^1.8.1"
   },
