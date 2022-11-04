@@ -5,8 +5,8 @@ export default function Form() {
     <div className="w-full home_form h-full rounded-xl py-12 px-6 flex items-center">
       <div className="form_group">
         <div className="grid grid-cols-4 gap-6 mb-8">
-            <button className='brand-btn col-span-2'>Get OTP</button>
-            <button className='brand-btn-secondary col-span-2'>Get OTP</button>
+            <button className='brand-btn col-span-2'>Repair</button>
+            <button className='brand-btn-secondary col-span-2'>Protection Plan</button>
         </div>
         <form action="#" className='traplace'>
           <input type="text" name="mobile" id="mobile" autocomplete="off" placeholder='Enter Your Name' className='text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md' />
