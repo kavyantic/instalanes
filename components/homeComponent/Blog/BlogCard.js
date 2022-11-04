@@ -7,13 +7,13 @@ const BlogData = [
 ]
 const BlogCard = () => {
     return (
-        <section className="blog_section mb-4">
+        <section className="blog_section mt-4 lg:mt-8">
             <div className="container">
                 <h2 className="slider_title mb-4">read our latest <span>blog</span></h2>
                 <div className="grid grid-cols-12 gap-4">
                     {BlogData.map(({ link, heading, date, description, by, src }) => {
                         return (
-                            <div className="col-span-full md:col-span-3">
+                            <div className="col-span-full sm:col-span-6 md:col-span-3">
                                 <a href={link}>
                                     <div className="max-w-sm rounded-lg overflow-hidden">
                                         <img className="w-full" src={src} alt={heading} />

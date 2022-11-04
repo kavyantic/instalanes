@@ -39,7 +39,7 @@ export default function Testimonial() {
         prevArrow: <SamplePrevArrow />,
         responsive: [
             {
-              breakpoint: 1150,
+              breakpoint: 1024,
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
@@ -62,7 +62,7 @@ export default function Testimonial() {
           ]
     };
   return (
-    <section className="textimonial py-8">
+    <section className="textimonial py-8 mt-4 lg:mt-8">
         <div className="container">
         <h2 className="slider_title mb-4">popular barand we</h2>
             <Slider {...settings}>

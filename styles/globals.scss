@@ -9,6 +9,7 @@
 $primary: #561E9D;
 $primary-70: hsl(264deg 65% 35% / 70%);
 $secondary: #656565;
+$secondary-tint: #F0F0F0;
 body{
     font-family: 'Poppins', sans-serif;
 }
@@ -379,4 +380,36 @@ input[type=number] {
 ::-webkit-scrollbar {
     display: none;
   }
+// end here 
+// end here 
+// this area is for why choose section 
+.choose_card{
+    cursor: pointer;
+    &:hover .rounded-gray{
+        background-color: $primary;
+    }
+    &:hover .rounded-gray img{
+       filter: invert(1);
+       opacity: 1;
+    }
+    &:hover h4{
+        color: $primary;
+    }
+    .rounded-gray{
+        background-color: $secondary-tint;
+        transition: all .3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        img{
+            opacity: .4;
+            transition: all .3s;
+        }
+    }
+    h4{
+        color: $secondary;
+        transition: all .3s;
+    }
+}
 // end here 
