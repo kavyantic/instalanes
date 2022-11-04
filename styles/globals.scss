@@ -10,6 +10,9 @@ $primary: #561E9D;
 $primary-70: hsl(264deg 65% 35% / 70%);
 $secondary: #656565;
 $secondary-tint: #F0F0F0;
+$yellow: #FFDA58;
+$green: #60C84F;
+$light-voilet: #E3CDFF;
 body{
     font-family: 'Poppins', sans-serif;
 }
@@ -310,6 +313,19 @@ footer{
     background-color: rgba($color: #fff, $alpha: .45);
     backdrop-filter: blur(6px);
 }
+.white-glass-repair{
+    background: linear-gradient(111.68deg, rgba(255, 255, 255, 0.29) 7.59%, rgba(255, 255, 255, 0.39) 102.04%);
+    border: 3.5636px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(13.0665px);
+    border-radius: 21.3816px;
+    .white-glass{
+        background: rgba(255, 255, 255, 0.37);
+        backdrop-filter: blur(0px);
+    }
+}
+.black-glass-repair{
+    background: rgba(0, 0, 0, 0.25);
+}
 .black-glass{
     background-color: rgba($color: #000000, $alpha: .20);
     backdrop-filter: blur(6px);
@@ -353,32 +369,47 @@ input[type=number] {
     justify-content: center;
 }
 .step{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: blue;
-    backdrop-filter: blur(4px);
-    margin-right: 20px;
     position: relative;
-    z-index: 10;
+    p{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        color: white;
+        align-items: center;
+        background: rgba($color: #fff, $alpha: 0.3);
+        backdrop-filter: blur(4px);
+        margin-right: 20px;
+        z-index: 10;
+    }
     &::before{
         content: "";
         position: absolute;
-        top: -10px;
-        left: -10px;
-        background: red;
-        width: 100%;
-        height: 100%;
+        top: -5px;
+        left: -5px;
+        background: $yellow;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        z-index: 1;
+        z-index: -1;
+    }
+    &.Complete::before{
+        background: $green;
+    }
+    &.active::before{
+        background: $light-voilet;
     }
 }
-
+.stop_at_point{
+    max-height: 600px;
+    overflow-y: auto;
+}
 ::-webkit-scrollbar {
     display: none;
+  }
+  .backblur{
+    backdrop-filter: blur(40px);
   }
 // end here 
 // end here 
@@ -410,6 +441,8 @@ input[type=number] {
     h4{
         color: $secondary;
         transition: all .3s;
+        font-size: calc(15px + 1.2vw);
+
     }
 }
 // end here 

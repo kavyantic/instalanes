@@ -2,16 +2,16 @@ import React, { memo, useEffect, useState } from "react";
 
 const banners = [
   {
-    link: "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    link: "/1.png",
   },
   {
-    link: "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    link: "/2.png",
   },
   {
-    link: "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    link: "/3.png",
   },
   {
-    link: "https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg",
+    link: "/4.png",
   },
 ];
 
@@ -55,7 +55,7 @@ export default memo(function Banner() {
             {...{ onMouseLeave }}
             className={`option ${ind == active ? "active" : ""} `}
             style={{
-              background: `url(${link})`,
+              background: `url(${link})no-repeat center center/cover`,
             }}
           ></div>
         );
