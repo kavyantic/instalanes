@@ -66,9 +66,9 @@ export default function Testimonial() {
         <div className="container">
         <h2 className="slider_title mb-4">popular barand we</h2>
             <Slider {...settings}>
-            {userdate.map(({ backgroundUrl, name, details }) => {
+            {userdate.map(({ backgroundUrl, name, details },ind) => {
             return (
-                <div className="px-2">
+                <div className="px-2" key={ind}>
                     <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
                         <img className="object-cover w-full h-96 grayscale hover:grayscale-0 duration-300" src={backgroundUrl} alt="Flower and sky"/>
                         <div className="absolute bottom-0 left-0 px-6 py-4">

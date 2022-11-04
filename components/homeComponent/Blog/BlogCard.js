@@ -13,7 +13,7 @@ const BlogCard = () => {
                 <div className="grid grid-cols-12 gap-4">
                     {BlogData.map(({ link, heading, date, description, by, src }) => {
                         return (
-                            <div className="col-span-full sm:col-span-6 md:col-span-3">
+                            <div className="col-span-full sm:col-span-6 md:col-span-3" key={link}>
                                 <a href={link}>
                                     <div className="max-w-sm rounded-lg overflow-hidden">
                                         <img className="w-full" src={src} alt={heading} />

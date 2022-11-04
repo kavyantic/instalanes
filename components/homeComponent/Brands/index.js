@@ -48,7 +48,7 @@ export default function Brand() {
             <Slider {...settings}>
             {brands.map(({icon, link}) => {
             return (
-                <div>
+                <div key={link}>
                     <a href={link} className="">
                         <img src={icon} className="h-14 m-6"/>
                     </a>
