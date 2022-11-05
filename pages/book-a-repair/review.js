@@ -66,7 +66,7 @@ export default function Review() {
         </details>
       </div>
       <button className="brand-btn" onClick={() => setOpen(true)}>
-        Get OTP
+        Place order
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

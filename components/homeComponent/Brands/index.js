@@ -50,7 +50,7 @@ export default function Brand() {
             return (
                 <div key={link}>
                     <a href={link} className="">
-                        <img src={icon} className="h-14 m-6"/>
+                        <img src={icon} className="h-8 lg:h-14 m-6"/>
                     </a>
                 </div>
             )

@@ -17,7 +17,7 @@ const BlogCard = () => {
                         return (
                             <div className="col-span-full sm:col-span-6 md:col-span-3" key={link} onClick={()=>router.push('/blogs')}>
                                 <a >
-                                    <div className="max-w-sm rounded-lg overflow-hidden">
+                                    <div className="rounded-lg overflow-hidden">
                                         <img className="w-full" src={src} alt={heading} />
                                         <div className='bg-primaryLight py-2 px-3'>
                                             <p className='text-xs text-primary font-medium'>{date}</p>
