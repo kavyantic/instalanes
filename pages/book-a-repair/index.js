@@ -15,11 +15,7 @@ export default function BookARepair() {
           placeholder="Enter your model"
             className="text-white black-glass-repair col-span-6 p-4 outline-none focus:outline-none rounded-md"
           />
-          <datalist id="mobile">
-            {mobile.map(({ brand_name }) => {
-              return <option value={brand_name} />;
-            })}
-          </datalist>
+        
           <input
             type="text"
             className="text-white black-glass-repair col-span-6 p-4 outline-none focus:outline-none rounded-md"
