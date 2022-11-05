@@ -48,10 +48,11 @@ const api = createApi({
         body: {...credentials },
       }),
     }),
+    getRepairData: builder.query({ query: () => "api/v1/data/repair" }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = api;
+export const { useLoginMutation, useRegisterMutation,useGetRepairDataQuery } = api;
 
 export const { verifyScreenProtectionOrder } = api.endpoints;
 export default api;
