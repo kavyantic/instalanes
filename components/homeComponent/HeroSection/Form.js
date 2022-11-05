@@ -26,8 +26,8 @@ export default function Form() {
             className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
           />
           <datalist id="mobile">
-            {mobile.map(({ brand_name }) => {
-              return <option value={brand_name} />;
+            {mobile.map(({ brand_name },ind) => {
+              return <option key={brand_name} value={brand_name} />;
             })}
           </datalist>
           <input
@@ -36,8 +36,8 @@ export default function Form() {
             className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
           />
           <datalist id="model">
-            {modelList.map((model_name) => {
-              return <option value={model_name} />;
+            {modelList.map((model_name,ind) => {
+              return <option key={ind} value={model_name} />;
             })}
           </datalist>
 
@@ -48,8 +48,8 @@ export default function Form() {
           />
 
           <datalist id="issue">
-            {issue.map(({ name }) => {
-              return <option value={name} />;
+            {issue.map(({ name },ind) => {
+              return <option key={ind} value={name} />;
             })}
           </datalist>
           <button className="brand-btn" onClick={()=>router.push('/book-a-repair/review')}>
