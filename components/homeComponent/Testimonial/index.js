@@ -64,7 +64,7 @@ export default function Testimonial() {
   return (
     <section className="textimonial py-8 mt-4 lg:mt-8">
         <div className="container">
-        <h2 className="slider_title mb-4">popular barand we</h2>
+        <h2 className="slider_title mb-4">what our <span>client</span> says</h2>
             <Slider {...settings}>
             {userdate.map(({ backgroundUrl, name, details },ind) => {
             return (

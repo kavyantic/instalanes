@@ -44,7 +44,7 @@ export default function Brand() {
   return (
     <section className="brands mt-4 lg:mt-8">
         <div className="container">
-        <h2 className="slider_title mb-4">popular barand we <span>repair</span></h2>
+        <h2 className="slider_title mb-4">popular brand we <span>repair</span></h2>
             <Slider {...settings}>
             {brands.map(({icon, link}) => {
             return (

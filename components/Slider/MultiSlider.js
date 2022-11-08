@@ -68,7 +68,7 @@ export default class MultiSlider extends Component {
       <section className="mt-4 lg:mt-8">
         <div className="container">
           <h2 className="slider_title mb-4">
-            popular barand we <span>repair</span>
+            latest <span>offers</span>
           </h2>
           <Slider {...settings}>
             {offerLInk.map(({ backgroundUrl, link }) => {
