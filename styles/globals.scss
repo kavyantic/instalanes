@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
 @font-face {
     font-family: barnd_font;
     src: url(QarantaBold.otf);
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,13 +15,16 @@ $secondary-tint: #F0F0F0;
 $yellow: #FFDA58;
 $green: #60C84F;
 $light-voilet: #E3CDFF;
-body{
+
+body {
     font-family: 'Poppins', sans-serif;
 }
-section{
+
+section {
     background-color: white;
 }
-.brand-btn-secondary{
+
+.brand-btn-secondary {
     background-color: rgba($color: #fff, $alpha: .45);
     color: rgba($color: #000000, $alpha: .50);
     border-radius: 6px;
@@ -27,11 +32,13 @@ section{
     border: none;
     letter-spacing: 0.05em;
     transition: all .3s;
-    &:hover{
+
+    &:hover {
         background-color: rgba($color: #fff, $alpha: .60)
     }
 }
-.brand-btn{
+
+.brand-btn {
     text-decoration: none;
     background: linear-gradient(133deg, #271a60 0%, #923cff 30%, #561e9d 100%);
     background-size: 500%;
@@ -50,29 +57,35 @@ section{
     transition: all .3s;
     -ms-user-select: none;
     user-select: none;
-    &:hover{
+
+    &:hover {
         background-position: 100%;
     }
-    svg{
+
+    svg {
         margin-left: 8px;
         transition: all .3s;
     }
-    &:hover > svg{
+
+    &:hover>svg {
         margin-left: 20px;
         width: 2rem;
     }
 }
+
 /* this area is for navbar  */
-.brand_navbar{
+.brand_navbar {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     box-shadow: 2px 0px 6px 0px #dbdbdb80;
 }
-.nav_link{
+
+.nav_link {
     position: relative;
     transition: all .3s;
 }
-.nav_link::after{
+
+.nav_link::after {
     content: "";
     display: block;
     width: 00%;
@@ -87,7 +100,8 @@ section{
     transition: all .3s;
     border-top-right-radius: 4px;
 }
-.nav_link::before{
+
+.nav_link::before {
     content: "";
     display: block;
     width: 00%;
@@ -102,15 +116,19 @@ section{
     transition: all .3s;
     border-bottom-left-radius: 4px;
 }
-.nav_link:hover{
+
+.nav_link:hover {
     color: $primary;
 }
-.nav_link:hover::after, .nav_link:hover::before{
+
+.nav_link:hover::after,
+.nav_link:hover::before {
     width: 50%;
     height: 50%;
     border-color: $primary-70;
 }
-.nav_link.active::before{
+
+.nav_link.active::before {
     content: "";
     display: block;
     width: 100% !important;
@@ -125,7 +143,8 @@ section{
     transition: all .3s;
     border-radius: 4px !important;
 }
-.nav_link.active::after{
+
+.nav_link.active::after {
     content: "";
     display: block;
     width: 100% !important;
@@ -140,33 +159,41 @@ section{
     transition: all .3s;
     border-radius: 4px !important;
 }
+
 /* end here */
 /* this area is for hero section  */
-.brand-heading{
+.brand-heading {
     color: $secondary;
     font-size: calc(25px + 2vw);
     text-transform: capitalize;
 }
-.textimonial .slider_title{
+
+.textimonial .slider_title {
     color: white !important;
 }
-.slider_title{
+
+.slider_title {
     color: $secondary;
     font-size: calc(15px + 1.2vw);
     width: 80%;
     text-transform: capitalize;
-    span{
+
+    span {
         font-size: calc(18px + 1.5vw);
     }
 }
-.brand-heading span, .slider_title span{
+
+.brand-heading span,
+.slider_title span {
     text-transform: capitalize;
     color: $primary;
     font-family: barnd_font;
 }
-.home_form{
+
+.home_form {
     background: url('https://s3-alpha-sig.figma.com/img/b2c4/8ac9/b2e96df8479e849bf47f8e943f93055e?Expires=1668384000&Signature=S1cxvT5PPpelBrK2cElLU8ILjUKcAlub76V26qrHkDieAVNzV5HNkEoTD84f60bKrcypaS~wUBsC66J-zvIMrp0kI6R7P-wwKfUWSjXp19PhDUo0o5JotrCRw63xp9vnBNUqcqEQM2D3vViB7CPx~9yXmtCMWC0v35EQDDDhXFpxoONvO2FbidI0Ka3TF01gfDRyneFPtZwnTgCuQlmzCAC0sFzDblkeb~DGvQJE3cut5dOYok5uWhmCdcuVTx4Mm1Fpu~yvOkrxzdhc8c4SQoxfxQMQ5U4oeR2OW9M0dZj19qCAq7UtaQ94NuforOJvBtvD5cq4iizO8w19maEDbw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA') no-repeat center center/cover;
 }
+
 /* end here  */
 /* this area is for banner section  */
 .options {
@@ -177,30 +204,36 @@ section{
     width: 100%;
     height: 100%;
     min-height: calc(80px + 20vw);
+
     .option {
         position: relative;
         overflow: hidden;
         min-width: calc(25px + 2vw);
         margin: 0px 10px;
-        @media(max-width: 450px){
+
+        @media(max-width: 450px) {
             margin: 0px 4px;
         }
+
         background-position: center;
         cursor: pointer;
         transition: all .5s;
+
         &.active {
             flex-grow: 10;
             border-radius: calc(6px + .5vw);
         }
+
         &:not(.active) {
             flex-grow: 1;
             border-radius: calc(6px + .5vw);
         }
     }
 }
+
 /* end here  */
 // this area is for footer 
-footer{
+footer {
     background-image: url('../public/footer-bg.png');
     background-repeat: no-repeat;
     background-position-x: left;
@@ -208,39 +241,48 @@ footer{
     background-size: cover;
     height: 100%;
 }
-.footer_col{
+
+.footer_col {
     background-color: rgba($color: #fff, $alpha: 0.5);
     backdrop-filter: blur(12px);
     border-radius: 28px;
     border: 0.8px solid rgba($color: $primary, $alpha: 0.3);
     box-shadow: 5px 5px 0px 0px $primary;
 }
-.f-heading{
+
+.f-heading {
     font-family: barnd_font;
 }
+
 // end here 
 // this area is for slick arrows 
-.slick-arrow{
+.slick-arrow {
     transform: translate(0, -100%);
     top: -3rem !important;
-    @media(max-width:768px){
+
+    @media(max-width:768px) {
         top: -2rem !important;
     }
 }
-.slick-prev{
+
+.slick-prev {
     left: inherit !important;
     right: 40px !important;
-    @media(max-width: 768px){
+
+    @media(max-width: 768px) {
         right: 20px !important;
-        &::after{
+
+        &::after {
             width: 15px !important;
             height: 15px !important;
         }
     }
-    &::before{
+
+    &::before {
         display: none;
     }
-    &::after{
+
+    &::after {
         content: '';
         width: 25px;
         height: 25px;
@@ -251,24 +293,30 @@ footer{
         background: url(../public/arrow-right.svg)no-repeat center center/contain;
         transition: all .1s;
     }
-    &:hover::after{
+
+    &:hover::after {
         opacity: 1;
         filter: grayscale(0%);
     }
 }
-.slick-next{
+
+.slick-next {
     right: 0px !important;
-    @media(max-width: 768px){
+
+    @media(max-width: 768px) {
         right: 0px !important;
-        &::after{
+
+        &::after {
             width: 15px !important;
             height: 15px !important;
         }
     }
-    &::before{
+
+    &::before {
         display: none;
     }
-    &::after{
+
+    &::after {
         content: '';
         width: 25px;
         height: 25px;
@@ -278,49 +326,58 @@ footer{
         background: url(../public/arrow-right.svg)no-repeat center center/contain;
         transition: all .1s;
     }
-    &:hover::after{
+
+    &:hover::after {
         opacity: 1;
         filter: grayscale(0%);
     }
 }
-.textimonial .slick-next{
-    &::after{
+
+.textimonial .slick-next {
+    &::after {
         filter: grayscale(100%) invert(100%);
     }
-    &:hover::after{
-        filter: grayscale(100%) invert(100%);
-    }
-}
-.textimonial .slick-prev{
-    &::after{
-        filter: grayscale(100%) invert(100%);
-    }
-    &:hover::after{
+
+    &:hover::after {
         filter: grayscale(100%) invert(100%);
     }
 }
+
+.textimonial .slick-prev {
+    &::after {
+        filter: grayscale(100%) invert(100%);
+    }
+
+    &:hover::after {
+        filter: grayscale(100%) invert(100%);
+    }
+}
+
 // end here 
 // this area is for testmonial section 
-.textimonial{
+.textimonial {
     background: url('../public/testi.webp')no-repeat center center/cover;
     background-attachment: fixed;
     width: 100%;
 }
+
 // end here 
 // this area is for brands section 
-.brands{
-    .slick-list{
+.brands {
+    .slick-list {
         box-shadow: 0px 0px 10px 0px rgba($color: $secondary, $alpha: 0.2) !important;
         border-radius: 24px;
         padding: 5px 20px !important;
-        @media(max-width: 768px){
+
+        @media(max-width: 768px) {
             padding: 0px 10px !important;
         }
     }
 }
+
 // end here 
 // this area is for auth section 
-.authBg{
+.authBg {
     background: url("https://drive.google.com/uc?export=view&id=1d47mwg7MgrRhZBFqEjcPqXf2a0rTcfRX")no-repeat center center/cover;
     width: 100%;
     min-height: 100vh;
@@ -329,57 +386,63 @@ footer{
     align-items: center;
     justify-content: center;
 }
-.white-glass{
+
+.white-glass {
     background-color: rgba($color: #fff, $alpha: .45);
     backdrop-filter: blur(6px);
 }
-.white-glass-repair{
+
+.white-glass-repair {
     background: linear-gradient(111.68deg, rgba(255, 255, 255, 0.29) 7.59%, rgba(255, 255, 255, 0.39) 102.04%);
     border: 3.5636px solid rgba(255, 255, 255, 0.28);
     backdrop-filter: blur(13.0665px);
     border-radius: 21.3816px;
-    .white-glass{
+
+    .white-glass {
         background: rgba(255, 255, 255, 0.37);
         backdrop-filter: blur(0px);
     }
 }
-.black-glass-repair{
+
+.black-glass-repair {
     background: rgba(0, 0, 0, 0.25);
 }
-.black-glass{
+
+.black-glass {
     background-color: rgba($color: #000000, $alpha: .20);
     backdrop-filter: blur(6px);
 }
-.traplace{
+
+.traplace {
     ::placeholder {
-            color: rgba($color: #fff, $alpha: .50);
-            opacity: 1;
-        }
-        
-        :-ms-input-placeholder {
-            color: rgba($color: #fff, $alpha: .50);
-        }
-        
-        ::-ms-input-placeholder {
-            color: rgba($color: #fff, $alpha: .50);
-        }
+        color: rgba($color: #fff, $alpha: .50);
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: rgba($color: #fff, $alpha: .50);
+    }
+
+    ::-ms-input-placeholder {
+        color: rgba($color: #fff, $alpha: .50);
+    }
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 // end here 
 // this area is for book a repair 
-.book_a_repair_bg{
+.book_a_repair_bg {
     background: url("../public/book_a_repair_bg.webp")no-repeat center center/cover;
     width: 100%;
     min-height: 100vh;
@@ -388,9 +451,11 @@ input[type=number] {
     align-items: center;
     justify-content: center;
 }
-.step{
+
+.step {
     position: relative;
-    p{
+
+    p {
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -403,7 +468,8 @@ input[type=number] {
         margin-right: 20px;
         z-index: 10;
     }
-    &::before{
+
+    &::before {
         content: "";
         position: absolute;
         top: -5px;
@@ -414,55 +480,82 @@ input[type=number] {
         border-radius: 50%;
         z-index: -1;
     }
-    &.Complete::before{
+
+    &.Complete::before {
         background: $green;
     }
-    &.active::before{
+
+    &.active::before {
         background: $light-voilet;
     }
 }
-.stop_at_point{
+
+.stop_at_point {
     max-height: 600px;
     overflow-y: auto;
 }
+
 ::-webkit-scrollbar {
     display: none;
-  }
-  .backblur{
+}
+
+.backblur {
     backdrop-filter: blur(40px);
-  }
+}
+
 // end here 
 // end here 
 // this area is for why choose section 
-.choose_card{
+.choose_card {
     cursor: pointer;
-    &:hover .rounded-gray{
+
+    &:hover .rounded-gray {
         background-color: $primary;
     }
-    &:hover .rounded-gray img{
-       filter: invert(1);
-       opacity: 1;
+
+    &:hover .rounded-gray img {
+        filter: invert(1);
+        opacity: 1;
     }
-    &:hover h4{
+
+    &:hover h4 {
         color: $primary;
     }
-    .rounded-gray{
+
+    .rounded-gray {
         background-color: $secondary-tint;
         transition: all .3s;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        img{
+
+        img {
             opacity: .4;
             transition: all .3s;
         }
     }
-    h4{
+
+    h4 {
         color: $secondary;
         transition: all .3s;
         font-size: calc(15px + 1.2vw);
 
     }
 }
+
+.glassy-backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(6px);
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
 // end here 

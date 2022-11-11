@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../components/Layout";
-import BlogSection from "../components/homeComponent/Blog/BlogSection";
+import BlogCard from "../../components/homeComponent/Blog/BlogCard";
+import Layout from "../../components/Layout"
 export default function BlogShow() {
-  return <BlogSection />;
+  return <BlogCard />;
 }
 
 BlogShow.getLayout = function getLayout(page) {

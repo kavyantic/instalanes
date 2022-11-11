@@ -13,7 +13,7 @@ export default function HeroSection() {
           </div>
           <div className="col-span-3 lg:col-span-2 bannersection">
             <h1 className="brand-heading text-center md:text-left">
-              Get repaired Your mobile at your <span>doorstep</span>
+              Get repaired your mobile at your <span>doorstep</span>
             </h1>
           </div>
           <div className="lg:row-span-2 col-span-3 lg:col-span-2">

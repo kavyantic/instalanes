@@ -3,7 +3,7 @@ import store from "..";
 import { setAuth } from "../authSlice";
 import { setAuthLoading } from "../uiSlice";
 var isInitial = true;
-var baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+var baseUrl = "";
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
@@ -54,5 +54,4 @@ const api = createApi({
 
 export const { useLoginMutation, useRegisterMutation,useGetRepairDataQuery } = api;
 
-export const { verifyScreenProtectionOrder } = api.endpoints;
 export default api;

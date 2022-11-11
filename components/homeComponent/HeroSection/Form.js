@@ -1,12 +1,20 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import mobile from "../../../app/utils/brands.json";
 import issue from "../../../app/utils/issues.json";
+import { Dialog } from '@headlessui/react';
+import Select from 'react-tailwindcss-select';
+import { useGetRepairDataQuery } from "../../../app/store/apiSlice";
+
 export default function Form() {
   const [modelList, setModelList] = useState([]);
+  const [modalVis, setModalVis] = useState(false)
+  const { data, error, isLoading } = useGetRepairDataQuery()
   const router = useRouter()
+  const inpRef = useRef(null)
   return (
     <div className="w-full home_form h-full rounded-xl py-12 px-6 flex items-center">
+
       <div className="form_group">
         <div className="grid grid-cols-4 gap-6 mb-8">
           <button className="brand-btn col-span-2">Repair</button>
@@ -15,44 +23,55 @@ export default function Form() {
           </button>
         </div>
         <form action="#" className="traplace">
-          <input
+
+
+          <select
             onChange={({ target: { value } }) => {
               setModelList(
-                mobile.find((mb) => mb.brand_name == value)?.models || []
+                data.mobiles.find((mb) => mb.brand_name == value)?.models || []
               );
             }}
             placeholder="Enter your brand"
-            list="mobile"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
-          />
-          <datalist id="mobile">
-            {mobile.map(({ brand_name },ind) => {
-              return <option key={brand_name} value={brand_name} />;
-            })}
-          </datalist>
-          <input
-            list="model"
-            placeholder="Enter model name"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
-          />
-          <datalist id="model">
-            {modelList.map((model_name,ind) => {
-              return <option key={ind} value={model_name} />;
-            })}
-          </datalist>
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          >
+            <option value="" disabled selected>Select Brand</option>
 
-          <input
-           list="issue"
-            placeholder="Please enter your issue"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
-          />
+            {data?.mobiles && data.mobiles.map(({ brand_name:name }) => {
+              return <option key={name} value={name} >{name}</option>;
+            })}
+          </select>
 
-          <datalist id="issue">
-            {issue.map(({ name },ind) => {
+
+          <select
+           
+            placeholder="Enter your model"
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          >
+            <option value="" disabled selected>Select Model</option>
+
+            {modelList.map((model_name, ind) => {
+              return <option key={ind} value={model_name} >{model_name}</option>;
+            })}
+          </select>
+
+
+          <select
+            placeholder="Enter your brand"
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          >
+            <option value="" disabled selected>Pick an issue</option>
+
+            {data?.issues.map(({name}, ind) => {
+              return <option key={ind} value={name} >{name}</option>;
+            })}
+          </select>
+
+          {/* <datalist id="issue">
+            {issue.map(({ name }, ind) => {
               return <option key={ind} value={name} />;
             })}
-          </datalist>
-          <button className="brand-btn" onClick={()=>router.push('/book-a-repair/review')}>
+          </datalist> */}
+          <button className="brand-btn" onClick={() => router.push('/book-a-repair/review')}>
             Continue
             <svg
               xmlns="http://www.w3.org/2000/svg"

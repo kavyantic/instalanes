@@ -11,11 +11,11 @@ export default function BookARepair() {
       <div className="form_group">
         <div className="grid grid-cols-12 gap-4 mb-8">
           <input
-          list="mobile"
-          placeholder="Enter your model"
+            list="mobile"
+            placeholder="Enter your model"
             className="text-white black-glass-repair col-span-6 p-4 outline-none focus:outline-none rounded-md"
           />
-        
+
           <input
             type="text"
             className="text-white black-glass-repair col-span-6 p-4 outline-none focus:outline-none rounded-md"

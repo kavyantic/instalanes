@@ -5,12 +5,14 @@ import Slider from "../components/Slider";
 import Testimonial from "../components/homeComponent/Testimonial";
 import WhyChoose from "../components/homeComponent/WhyChoose";
 import Layout from "../components/Layout";
+import Backdrop from "../components/UI/Backdrop";
 
 
 
 export default function Home() {
   return (
     <div>
+
       <HeroSection />
       <Brand />
       <Slider />

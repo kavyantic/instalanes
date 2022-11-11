@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>Devicecure | Doorstep Repair</title>
         </Head>
+        
         {nestedLayout(layout(<Component {...pageProps} />))}
       </Provider>
     </>

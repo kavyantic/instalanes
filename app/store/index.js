@@ -8,6 +8,7 @@ import authMiddleware from './middlewares/authMiddleware'
 import addressSlice from './addressSlice'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import screenProtectionSlice from './screenProtectionSlice'
+import blogSlice from './blogSlice'
 
 export default configureStore({
     reducer:{
@@ -17,7 +18,8 @@ export default configureStore({
         [repairOrderSlice.name]:repairOrderSlice.reducer,
         [screenProtectionSlice.name]:screenProtectionSlice.reducer,
         [apiSlice.reducerPath]:apiSlice.reducer,
-        [addressSlice.name]:addressSlice.reducer
+        [addressSlice.name]:addressSlice.reducer,
+        [blogSlice.name]:blogSlice.reducer
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware,authMiddleware,apiErrorHandler),

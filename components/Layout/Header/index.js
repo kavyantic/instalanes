@@ -6,6 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import DevicecureLogo from "./Logo";
 import { useRouter } from "next/router";
 import navigation from '../../../app/utils/links.json'
+import { useSelector } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,7 +16,8 @@ function classNames(...classes) {
 export default function Header() {
   const router = useRouter();
   const { asPath: currentPath } = router;
-  const navTo = (href)=>{
+  const isAuth = useSelector(s=>s.auth.isAuthenticated)
+  const navTo = (href) => {
     router.push(href)
   }
 
@@ -47,7 +49,7 @@ export default function Header() {
                       return (
                         <a
                           key={name}
-                          onClick={()=>{navTo(href)}}                          
+                          onClick={() => { navTo(href) }}
                           className={classNames(
                             current ? "active text-primary" : "text-secondary",
                             "px-3 py-1 my-1 font-medium nav_link cursor-pointer"
@@ -61,7 +63,10 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
+
+              {!isAuth && <button className="brand-btn col-span-2" onClick={()=>router.push('/signin')}>Login</button>
+              }
+              {isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                 <button
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -134,7 +139,7 @@ export default function Header() {
                     </Menu.Items>
                   </Transition>
                 </Menu>
-              </div>
+              </div>}
             </div>
           </div>
 
