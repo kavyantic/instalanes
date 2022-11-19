@@ -13,7 +13,9 @@ export default function Form() {
   const router = useRouter()
   const inpRef = useRef(null)
   return (
-    <div className="w-full home_form h-full rounded-xl py-12 px-6 flex items-center">
+    <div className="w-full home_form h-full rounded-xl py-12 px-6 flex items-center" style={{
+      background: `url('/heroform.png')no-repeat center center/cover`
+    }}>
 
       <div className="form_group">
         <div className="grid grid-cols-4 gap-6 mb-8">
@@ -28,7 +30,7 @@ export default function Form() {
           <select
             onChange={({ target: { value } }) => {
               setModelList(
-                data.mobiles.find((mb) => mb.brand_name == value)?.models || []
+                data.mobiles.find((mb) => mb.name == value)?.models || []
               );
             }}
             placeholder="Enter your brand"
@@ -36,14 +38,14 @@ export default function Form() {
           >
             <option value="" disabled selected>Select Brand</option>
 
-            {data?.mobiles && data.mobiles.map(({ brand_name:name }) => {
+            {data?.mobiles && data.mobiles.map(({ name: name }) => {
               return <option key={name} value={name} >{name}</option>;
             })}
           </select>
 
 
           <select
-           
+
             placeholder="Enter your model"
             className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           >
@@ -61,7 +63,7 @@ export default function Form() {
           >
             <option value="" disabled selected>Pick an issue</option>
 
-            {data?.issues.map(({name}, ind) => {
+            {data?.issues.map(({ name }, ind) => {
               return <option key={ind} value={name} >{name}</option>;
             })}
           </select>
@@ -90,6 +92,6 @@ export default function Form() {
           </button>
         </form>
       </div>
-    </div>
+    </div >
   );
 }

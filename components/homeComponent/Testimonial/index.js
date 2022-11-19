@@ -23,18 +23,13 @@ function SamplePrevArrow(props) {
 
 }
 
-const backgroundUrl = "https://images.unsplash.com/photo-1502581827181-9cf3c3ee0106?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=420&q=80"
+// const backgroundUrl = "https://images.unsplash.com/photo-1502581827181-9cf3c3ee0106?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=420&q=80"
 const userdate = [
-  {
-    name: "Deepak sharma", backgroundUrl, details: "Thanks for saving my time with your service! As “mobile phone is a very important tool nowadays for professional life”, It affects the whole work when the phone get damaged/broken or if it has any internal issue but here’s the solution @Devicecure with Quick Response Service, Best Quality and Genuine Charges. Keep Growing!"
-  },
-  { name: "Ajay Naruka", backgroundUrl, details: "Superb experience with Device Cure…… repaired on time….. quality upto mark….." },
-  {
-    name: "Suyog Bora", backgroundUrl, details: "Great service…great experience….  "
-  }, { name: "Sidhi Bhansali", backgroundUrl, details: "Nice experience!! They repaired my phone real quick and now it feels like new." },
-  { name: "Nitu Pandel", backgroundUrl, details: "Good service, they repair my damaged mobile screen within 20 minutes. Thank you Devicecure " },
-  { name: "Seema Gupta", backgroundUrl, details: "Professional technicians, Got replaced my mobile screen just in 20 mins in my office.  " },
-  { name: "Lavina Jain ",backgroundUrl,details: "Good service, they repaired my phone real quick.  " }
+  {name: "Deepak sharma", backgroundUrl: "/test1.jpg", details: "Thanks for saving my time with your service! As “mobile phone is a very important tool nowadays for professional life”, It affects the whole work when the phone get damaged/broken or if it has any internal issue but here’s the solution @Devicecure with Quick Response Service, Best Quality and Genuine Charges. Keep Growing!"},
+  {name: "Ajay Naruka", backgroundUrl: "/test4.jpg", details: "Superb experience with Device Cure…… repaired on time….. quality upto mark….." },
+  {name: "Suyog Bora", backgroundUrl: "/test2.jpg", details: "Great service…great experience….  "}, 
+  {name: "Nitu Pandel", backgroundUrl: "/test5.jpg", details: "Good service, they repair my damaged mobile screen within 20 minutes. Thank you Devicecure " },
+  {name: "Lavina Jain ",backgroundUrl: "/test3.jpg",details: "Good service, they repaired my phone real quick.  " }
 ];
 export default function Testimonial() {
   const settings = {
@@ -84,7 +79,6 @@ export default function Testimonial() {
 
                   <div className="absolute bottom-0 left-0 px-6 py-4">
                     <h4 className="mb-3 text-xl font-semibold tracking-tight text-white ">{name}</h4>
-
                     <p className="leading-normal text-gray-100">{details}</p>
                   </div>
                 </div>

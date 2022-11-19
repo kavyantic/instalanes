@@ -11,11 +11,11 @@ const links = [
 ];
 
 const impLinks = [
-  {link:"",name:"Privacy Policy"},
-  {link:"",name:"Warranty Policy"},
-  {link:"",name:"Terms & Conditions"},
-  {link:"",name:"Warranty Claim"},
-  {link:"",name:"Refer & Earn"},
+  { link: "https://api.devicecure.in/privacy-policy", name: "Privacy Policy" },
+  { link: "https://api.devicecure.in/warranty-policy", name: "Warranty Policy" },
+  { link: "https://api.devicecure.in/terms-conditions", name: "Terms & Conditions" },
+  { link: "", name: "Warranty Claim" },
+  { link: "", name: "Refer & Earn" },
 ];
 
 export default function Footer() {
@@ -101,7 +101,7 @@ export default function Footer() {
               </div>
               <div className="mb-4">
                 <p className="pb-2 text-xl cursor-pointer	 hover:text-primary f-heading">Download our app</p>
-                <img src="googleplay.png" className="w-full md:w-1/2"/>
+                <img src="googleplay.png" className="w-full md:w-1/2" />
               </div>
             </div>
             <div className="col-span-6 text-center md:text-left md:col-span-4 md:border-l border-secondary px-4">
