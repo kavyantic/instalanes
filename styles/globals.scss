@@ -357,6 +357,23 @@ footer {
     background-attachment: fixed;
     width: 100%;
 }
+.testi_box{
+    img{
+        filter: grayscale(1);
+        transition: all .3s;
+    }
+    &:hover img{
+        filter: grayscale(0);
+    }
+    .testi_detail{
+        p{
+            height: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis " [..]";
+            // white-space: nowrap;
+        }
+    }
+}
 
 // end here 
 // this area is for brands section 

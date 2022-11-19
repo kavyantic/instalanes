@@ -73,11 +73,11 @@ export default function Testimonial() {
             return (
               <div className="px-2" key={ind}>
 
-                <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer testi_box">
 
-                  <img className="object-cover w-full h-96 grayscale hover:grayscale-0 duration-300" src={backgroundUrl} alt="Flower and sky" />
+                  <img className="object-cover w-full h-96" src={backgroundUrl} alt={name} />
 
-                  <div className="absolute bottom-0 left-0 px-6 py-4">
+                  <div className="absolute bottom-0 left-0 px-6 py-4 testi_detail">
                     <h4 className="mb-3 text-xl font-semibold tracking-tight text-white ">{name}</h4>
                     <p className="leading-normal text-gray-100">{details}</p>
                   </div>
