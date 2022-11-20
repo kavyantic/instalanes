@@ -18,9 +18,9 @@ export default function Form() {
     }}>
 
       <div className="form_group">
-        <div className="grid grid-cols-4 gap-6 mb-8">
-          <button className="brand-btn col-span-2">Repair</button>
-          <button className="brand-btn-secondary col-span-2">
+        <div className="flex mb-8">
+          <button className="brand-btn mr-4 grow">Repair</button>
+          <button className="brand-btn-secondary grow">
             Protection Plan
           </button>
         </div>

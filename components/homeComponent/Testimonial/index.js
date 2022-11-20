@@ -79,7 +79,7 @@ export default function Testimonial() {
 
                   <div className="absolute bottom-0 left-0 px-6 py-4 testi_detail">
                     <h4 className="mb-3 text-xl font-semibold tracking-tight text-white ">{name}</h4>
-                    <p className="leading-normal text-gray-100">{details}</p>
+                    <p className="leading-normal text-gray-100">{details.slice(0, 50)}...</p>
                   </div>
                 </div>
               </div>
