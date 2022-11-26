@@ -2,9 +2,10 @@ const BlogData = [
     {
         "id": "34",
         "title": "Google’s latest android operating system brings out the best in devices, with powerful capabilities and a new look.",
-        "image": "/blog1.png",
-        "content": "",
-        "date" : "",
+        "image": "/blog2.png",
+        "content": "Android phones are most using devices. Android provides lot of customization options and control over their devices operating system.Android operating system pre- Installed and automatically activated on every android devices. Android Operating system always gives new features and new versions.",
+        "date" : "20 Oct 2022",
+        "by" : "Devicecure",
         "points": [
             {
                 "title": "Android OS  Specifications  and Features:",
@@ -58,8 +59,9 @@ const BlogData = [
     {
         "id": "35",
         "title": "Why MicroMax fail in India?",
-        "image": "/blog2.png",
-        "date" : "",
+        "image": "/blog4.png",
+        "date": "24 Oct 2022",
+        "by": "Devicecure",
         "content": "In this world everyone use smartphone and there are many smartphones launched in Indian market. Everyone wants to buy a smartphone who gives best features. why did micromax failure and why Nokia or Lava failed in the market of smartphone. Micromax income surpassed the Rs. 10,000 crore marks in 2016. The valuation dropped to Rs. 5614 crores in 2017 and then to Rs. 44,30 crores in 2018. The company had a rapid decline of 74%, which gave away the brand’s terrifically financial situation. then why micromax failed.  Micromax has stable to maintain its position. Like no other companies, the Chinese market has captured the interest of the Indian market consumers. The sales of Micromax were impacted by the entry of Chinese companies like Xiaomi and Oppo. However, these are categories can be used to group the elements that have the most negative impact on the brand. The most of the Micromax phones supported 3G technology. 3G technology launched in 2008 and 4G was introduced in 2012   in India.   Internet costs very costly compare to 3G, Because of the cost, individuals were unconvincing to switch to 4G even if 75% of phones were 3G compatible.",
         "points": [
             {
@@ -84,8 +86,9 @@ const BlogData = [
     {
         "id": "36",
         "title": "Apple iOS16 new features and specifications:",
-        "image": "/blog3.png",
-        "date" : "",
+        "image": "/blog1.png",
+        "date": "28 Oct 2022",
+        "by": "Devicecure",
         "content": "Apple release iOS 16 in few days ago, Apple is a most popular brand and most using Device in the world widely. i Operating system new version comes with many new amazing features like customization themes and settings  and many different advance features. IOS integrated power management, multi device support and support for peripherals. IOS 16 has a lot of new features and bug fixes in it. It also includes a ton of new tools and options that make your work easier. Apple launched this iOS 16 version with the new intelligent features, communication features and sharing features. That also included incorporate privacy. Apple also provides Business and non-business credentials. Apple launches anticipated release of this year’s conference on 12 September 2022 and iOS 16 next updated release on 24 October 2022. I operating system 16 is no longer the most update version of the apple iPhones.",
         "points": [
             {
@@ -118,8 +121,9 @@ const BlogData = [
     {
         "id": "37",
         "title": "Why choose to repair versus buy a new phone?",
-        "image": "/blog4.png",
-        "date" : "",
+        "image": "/blog3.png",
+        "date": "6 Nov 2022",
+        "by": "Devicecure",
         "content": "Mobile phones are very important in our daily life. Mobile is necessary for all the work. The worst thing happens when our phone gets broken or damaged. When one thing comes to our mind, get the phone repaired or buy a new one. \n\nSome Discussions for buying or repairing.",
         "points": [
             {

@@ -64,7 +64,7 @@ export default function Header() {
                 </div>
               </div>
 
-              {!isAuth && <button className="brand-btn col-span-2" onClick={()=>router.push('/signin')}>Login</button>
+              {!isAuth && <button className="col-span-2" onClick={() => router.push('/signin')}> <img src="/login.svg" alt="login icon" className="opacity-70 w-[28px]" /></button>
               }
               {isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                 <button

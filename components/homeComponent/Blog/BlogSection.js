@@ -14,9 +14,6 @@ const BlogSection = ({ id, title, date, content, image, points }) => {
                             <p className="text-secondary mb-3">
                                 {content}</p></>)
                     }
-
-
-
                 </div>
             </div>
         </div>
