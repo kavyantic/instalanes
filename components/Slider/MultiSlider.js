@@ -24,26 +24,27 @@ function SamplePrevArrow(props) {
 const offerLInk = [
   {
     link: "",
-    backgroundUrl: "/offers/b1.png",
+    backgroundUrl: "/offers/b1.webp",
   },
   {
     link: "",
-    backgroundUrl: "offers/b2.png",
+    backgroundUrl: "/offers/b2.webp",
   },
   {
     link: "",
-    backgroundUrl: "offers/b3.png",
+    backgroundUrl: "/offers/b3.webp",
   },
   {
     link: "",
-    backgroundUrl: "offers/b4.png",
+    backgroundUrl: "/offers/b4.webp",
   },
 ];
 export default class MultiSlider extends Component {
   render() {
     const settings = {
       infinite: true,
-      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 2000,
       slidesToShow: 3,
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,

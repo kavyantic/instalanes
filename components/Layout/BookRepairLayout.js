@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, {useEffect} from "react";
 import Transition from "../transitions";
+import Lottie from 'react-lottie';
+import lottieAnimation from "/public/under-construction.json"
 
 const steps = [
   { link: '/book-a-repair', name: "Detail section" },
@@ -12,11 +14,40 @@ const steps = [
 export default function BookRepairLayout({ children }) {
   const router = useRouter()
   const activeIndex = steps.indexOf
+  // this is for lottie animation 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: lottieAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+  // end here 
   return (
     <Transition>
-      <img src="/under_con.png" alt="" className="w-full fixed top-0 left-0 object-cover h-screen z-10" />
-      <Link href="/" className="brand-btn fixed top-5 left-5 z-20">Back to Site</Link>
-      <div className="book_a_repair_bg">
+      <div className="container py-8">
+        <div className="grid grid-cols-8 gap-6 place-items-center">
+          <div className="col-span-8 lg:col-span-4 xl:col-span-3">
+            <h1 className="brand-heading text-center lg:text-left mb-6">page under <span>construction!</span></h1>
+            <p className='text-secondary text-xl mb-6 text-center lg:text-left'>For Book A Repair Download Our App</p>
+            <a href="https://play.google.com/store/apps/details?id=com.app.devicecure" className="mb-6">
+              <img src="/googleplay.png" alt="" className='max-w-[300px] w-4/5 mx-auto lg:mx-0' />
+            </a>
+            <Link href="/">
+              <button className="brand-btn">Go Back</button>
+            </Link>
+          </div>
+          <div className="col-span-8 lg:col-span-4 xl:col-span-5">
+            <Lottie
+              options={defaultOptions}
+              width={"100%"}
+            />
+          </div>
+        </div>
+      </div>
+      
+      {/* <div className="book_a_repair_bg">
         <div className="container">
           <div className="grid grid-cols-12 gap-4 w-full py-12">
             <a href="#" className="col-span-12">
@@ -43,7 +74,7 @@ export default function BookRepairLayout({ children }) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Transition>
   );
 }
