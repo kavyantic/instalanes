@@ -6,6 +6,7 @@ import Testimonial from "../components/homeComponent/Testimonial";
 import WhyChoose from "../components/homeComponent/WhyChoose";
 import Layout from "../components/Layout";
 import Backdrop from "../components/UI/Backdrop";
+import SeoSection from "../components/homeComponent/Seo";
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
       <WhyChoose />
       <BlogCard />
       <Testimonial />
+      <SeoSection />
     </div>
   );
 }
