@@ -75,11 +75,13 @@ export default class MultiSlider extends Component {
               return (
                 <div key={link} className="mb-2">
                   <a rel="noopener noreferrer" className="" href={link}>
-                    <img
-                      src={backgroundUrl}
-                      alt={backgroundUrl}
-                      className="w-full p-2 rounded-2xl"
-                    ></img>
+                    <div className="pr-4">
+                      <img
+                        src={backgroundUrl}
+                        alt={backgroundUrl}
+                        className="w-full offer_sec rounded-2xl"
+                      ></img>
+                    </div>
                   </a>
                 </div>
               );
