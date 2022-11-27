@@ -69,28 +69,30 @@ export default function Testimonial() {
       <div className="container">
         <h2 className="slider_title mb-4 slide_white">what our <span>client</span> says</h2>
         <Slider {...settings}>
-          {userdate.map(({ backgroundUrl, name, details }, ind) => {
-            const [viewMore, setViewMore] = useState(true)
-           
-            return (
-              <div className="px-2" key={ind}>
-
-                <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer testi_box">
-
-                  <img className="object-cover w-full h-96" src={backgroundUrl} alt={name} />
-
-                  <div className="testioverlay absolute top-0 left-0 z-0 w-full h-full ">
-                    <div className="px-6 py-4 testi_detail z-10 absolute bottom-0 left-0">
-                      <h4 className="mb-3 text-xl font-semibold tracking-tight text-white ">{name}</h4>
-                      <p className="leading-normal text-gray-100">{viewMore ? `${details.slice(0, 50) }...` : details} <button onClick={() => setViewMore(!viewMore)} className="underline">{viewMore ? " Show More" : " Show Less"}</button></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+          {userdate.map((user, ind) =>            
+            <TestimonialCard user={user} key={ind}/>
+          )}
         </Slider>
       </div>
     </section>
   );
+}
+function TestimonialCard(props){
+  const [viewMore, setViewMore] = useState(true)
+  console.log(props.user.backgroundUrl)
+  return (
+    <div className="px-2">
+      <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer testi_box">
+
+        <img className="object-cover w-full h-96" src={props.user.backgroundUrl} alt={props.user.name} />
+
+        <div className="testioverlay absolute top-0 left-0 z-0 w-full h-full ">
+          <div className="px-6 py-4 testi_detail z-10 absolute bottom-0 left-0">
+            <h4 className="mb-3 text-xl font-semibold tracking-tight text-white ">{props.user.name}</h4>
+            <p className="leading-normal text-gray-100">{viewMore ? `${props.user.details.slice(0, 50) }...`: props.user.details} <button onClick={() => setViewMore(!viewMore)} className="underline">{viewMore ? " Show More" : " Show Less"}</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }

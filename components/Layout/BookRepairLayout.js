@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import Transition from "../transitions";
@@ -14,7 +15,7 @@ export default function BookRepairLayout({ children }) {
   return (
     <Transition>
       <img src="/under_con.png" alt="" className="w-full fixed top-0 left-0 object-cover h-screen z-10" />
-      <a href="/" className="brand-btn fixed top-5 left-5 z-20">Back to Site</a>
+      <Link href="/" className="brand-btn fixed top-5 left-5 z-20">Back to Site</Link>
       <div className="book_a_repair_bg">
         <div className="container">
           <div className="grid grid-cols-12 gap-4 w-full py-12">
