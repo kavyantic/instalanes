@@ -25,16 +25,17 @@ function SamplePrevArrow(props) {
 
 // const backgroundUrl = "https://images.unsplash.com/photo-1502581827181-9cf3c3ee0106?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=420&q=80"
 const userdate = [
-  {name: "Deepak sharma", backgroundUrl: "/test1.jpg", details: "Thanks for saving my time with your service! As “mobile phone is a very important tool nowadays for professional life”, It affects the whole work when the phone get damaged/broken or if it has any internal issue but here’s the solution @Devicecure with Quick Response Service, Best Quality and Genuine Charges. Keep Growing!"},
-  {name: "Ajay Naruka", backgroundUrl: "/test4.jpg", details: "Superb experience with Device Cure repaired on time. quality upto mark." },
-  {name: "Suyog Bora", backgroundUrl: "/test2.jpg", details: "Great service great experience."}, 
-  {name: "Nitu Pandel", backgroundUrl: "/test5.jpg", details: "Good service, they repair my damaged mobile screen within 20 minutes. Thank you Devicecure " },
-  {name: "Lavina Jain ",backgroundUrl: "/test3.jpg",details: "Good service, they repaired my phone real quick." }
+  {name: "Deepak sharma", backgroundUrl: "/test1.webp", details: "Thanks for saving my time with your service! As “mobile phone is a very important tool nowadays for professional life”, It affects the whole work when the phone get damaged/broken or if it has any internal issue but here’s the solution @Devicecure with Quick Response Service, Best Quality and Genuine Charges. Keep Growing!"},
+  {name: "Ajay Naruka", backgroundUrl: "/test4.webp", details: "Superb experience with Device Cure repaired on time. quality upto mark." },
+  {name: "Suyog Bora", backgroundUrl: "/test2.webp", details: "Great service great experience."}, 
+  {name: "Nitu Pandel", backgroundUrl: "/test5.webp", details: "Good service, they repair my damaged mobile screen within 20 minutes. Thank you Devicecure " },
+  {name: "Lavina Jain ",backgroundUrl: "/test3.webp",details: "Good service, they repaired my phone real quick." }
 ];
 export default function Testimonial() {
   const settings = {
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
     slidesToShow: 4,
     infinite: true,
     slidesToScroll: 1,

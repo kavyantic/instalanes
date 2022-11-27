@@ -22,20 +22,21 @@ function SampleNextArrow(props) {
     );
   }
   const brands = [
-    {link:"kavya sharma",icon:"https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png",},
-    {link:"kavya sharma",icon:"https://seeklogo.com/images/O/oneplus-logo-B6703954CF-seeklogo.com.png",},
-    {link:"kavya sharma",icon:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png",},
-    {link:"kavya sharma",icon:"https://www.freepnglogos.com/uploads/xiaomi-png/xiaomi-logo-logos-marcas-8.png",},
-    {link:"kavya sharma",icon:"https://1000logos.net/wp-content/uploads/2017/04/Motorola-Logo.png",},
-    {link:"kavya sharma",icon:"https://upload.wikimedia.org/wikipedia/commons/b/bc/Realme-realme-_logo_box-RGB-01.png",},
-    {link:"kavya sharma",icon:"https://upload.wikimedia.org/wikipedia/commons/8/8c/Vivo_New_Logo_2019.png",},
-    {link:"kavya sharma",icon:"https://www.freepnglogos.com/uploads/oppo-logo-png/oppo-smartphone-brand-logo-png-6.png",},
-    {link:"kavya sharma",icon:"https://logos-world.net/wp-content/uploads/2020/04/Huawei-Logo.png",},
+    { link: "", icon:"/brand_icons/Apple-logo.webp"},
+    { link: "", icon:"/brand_icons/Huawei-Logo.webp"},
+    { link: "", icon:"/brand_icons/mi.webp"},
+    { link: "", icon:"/brand_icons/motorola.webp"},
+    { link: "", icon:"/brand_icons/oneplus.webp"},
+    { link: "", icon:"/brand_icons/oppo.webp"},
+    { link: "", icon:"/brand_icons/realme.webp"},
+    { link: "", icon:"/brand_icons/samsung.webp"},
+    { link: "", icon:"/brand_icons/vivo.webp"},
   ];
 export default function Brand() {
     const settings = {
         infinite: true,
-        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 1000,
         infinite: true,
         variableWidth: true,
         nextArrow: <SampleNextArrow />,

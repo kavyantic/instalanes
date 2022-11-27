@@ -7,7 +7,7 @@ export default function SignUp({ formTitle, onSubmit }) {
  
 
   return (
-    <div className="authBg">
+    <div className="authBg" style={`background: url(${'/authbg.webp'})no-repeat center center/cover;`}>
       <div className="container">
         <div className="grid grid-cols-12 gap-4 w-full py-12">
           <div className="col-span-12 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-4">

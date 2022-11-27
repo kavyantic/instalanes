@@ -36,7 +36,9 @@ export default function VerifyNumber({ formTitle, onSubmitHandler, err }) {
       }
     };
   return (
-    <div className="authBg">
+    <div className="authBg" style={{
+      background: `url(${"/authbg.webp"})no-repeat center center/cover`,
+    }}>
       <div className="black-glass py-12 px-8 rounded-lg max-w-xl w-11/12">
         <h3 className="auth-title mb-8 text-white text-4xl font-light">
           {formTitle}

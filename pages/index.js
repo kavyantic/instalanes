@@ -20,7 +20,7 @@ export default function Home() {
       <WhyChoose />
       <BlogCard />
       <Testimonial />
-      <SeoSection />
+      {/* <SeoSection /> */}
     </div>
   );
 }

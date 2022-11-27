@@ -2,16 +2,16 @@ import React, { memo, useEffect, useState } from "react";
 
 const banners = [
   {
-    link: "/1.png",
+    link: "/banner/1.webp",
   },
   {
-    link: "/2.png",
+    link: "/banner/2.webp",
   },
   {
-    link: "/3.png",
+    link: "/banner/3.webp",
   },
   {
-    link: "/4.png",
+    link: "/banner/4.webp",
   },
 ];
 

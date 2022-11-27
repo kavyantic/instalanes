@@ -6,6 +6,7 @@ import { Dialog } from '@headlessui/react';
 import Select from 'react-tailwindcss-select';
 import { useGetRepairDataQuery } from "../../../app/store/apiSlice";
 
+
 export default function Form() {
   const [modelList, setModelList] = useState([]);
   const [modalVis, setModalVis] = useState(false)
@@ -13,11 +14,13 @@ export default function Form() {
   const router = useRouter()
   const inpRef = useRef(null)
   return (
-    <div className="w-full home_form h-full rounded-xl py-12 px-6 flex items-center" style={{
-      background: `url('/heroform.png')no-repeat center center/cover`
+    <div className="w-full h-full relative overflow-hidden rounded-xl flex items-center" style={{
     }}>
-
-      <div className="form_group">
+      <video id="background-video" loop autoPlay muted data-autoplay className="w-full h-full object-cover absolute top-0 left-0 z-0">
+        <source src="/lottieform.mp4" type="video/mp4" />
+        bro update your browser
+      </video>
+      <div className="form_group z-40 py-12 px-8">
         <div className="flex mb-8">
           <button className="brand-btn mr-4 grow">Repair</button>
           <button className="brand-btn-secondary grow">
@@ -25,8 +28,6 @@ export default function Form() {
           </button>
         </div>
         <form action="#" className="traplace">
-
-
           <select
             onChange={({ target: { value } }) => {
               setModelList(
@@ -34,7 +35,7 @@ export default function Form() {
               );
             }}
             placeholder="Enter your brand"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
           >
             <option value="" disabled selected>Select Brand</option>
 
@@ -47,7 +48,7 @@ export default function Form() {
           <select
 
             placeholder="Enter your model"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
           >
             <option value="" disabled selected>Select Model</option>
 
@@ -59,7 +60,7 @@ export default function Form() {
 
           <select
             placeholder="Enter your brand"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
           >
             <option value="" disabled selected>Pick an issue</option>
 

@@ -22,7 +22,7 @@ export default function Header() {
   }
 
   return (
-    <Disclosure as="nav" className="brand_navbar">
+    <Disclosure as="nav" className="brand_navbar sticky top-0 z-[99]">
       {({ open }) => (
         <>
           <div className="container">
