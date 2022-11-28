@@ -32,6 +32,7 @@ export default function BookRepairLayout({ children }) {
           </div>
           <div className="col-span-12 lg:col-span-6">
             <Lottie animationData={lottieAnimation} loop={true}  width={"100%"}/>
+            
           </div>
         </div>
       </div>
