@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, {useEffect} from "react";
 import Transition from "../transitions";
-import Lottie from 'react-lottie';
+import Lottie from "lottie-react";
 import lottieAnimation from "/public/under-construction.json"
 
 const steps = [
@@ -14,35 +14,24 @@ const steps = [
 export default function BookRepairLayout({ children }) {
   const router = useRouter()
   const activeIndex = steps.indexOf
-  // this is for lottie animation 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: lottieAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
-  // end here 
   return (
     <Transition>
       <div className="container py-8">
-        <div className="grid grid-cols-8 gap-6 place-items-center">
-          <div className="col-span-8 lg:col-span-4 xl:col-span-3">
+        <div className="grid grid-cols-12 gap-6 place-items-center">
+          <div className="col-span-12 lg:col-span-6">
             <h1 className="brand-heading text-center lg:text-left mb-6">page under <span>construction!</span></h1>
             <p className='text-secondary text-xl mb-6 text-center lg:text-left'>For Book A Repair Download Our App</p>
-            <a href="https://play.google.com/store/apps/details?id=com.app.devicecure" className="mb-6">
+            <a href="https://play.google.com/store/apps/details?id=com.app.devicecure">
               <img src="/googleplay.png" alt="" className='max-w-[300px] w-4/5 mx-auto lg:mx-0' />
             </a>
+            <div className="flex justify-center lg:justify-start">
             <Link href="/">
-              <button className="brand-btn">Go Back</button>
+              <button className="brand-btn mt-6">Go Back</button>
             </Link>
+            </div>
           </div>
-          <div className="col-span-8 lg:col-span-4 xl:col-span-5">
-            <Lottie
-              options={defaultOptions}
-              width={"100%"}
-            />
+          <div className="col-span-12 lg:col-span-6">
+            <Lottie animationData={lottieAnimation} loop={true}  width={"100%"}/>
           </div>
         </div>
       </div>

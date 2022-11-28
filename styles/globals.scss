@@ -530,10 +530,6 @@ input[type=number] {
     overflow-y: auto;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 .backblur {
     backdrop-filter: blur(40px);
 }
