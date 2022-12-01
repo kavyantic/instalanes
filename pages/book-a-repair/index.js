@@ -1,65 +1,67 @@
 import { useRouter } from "next/router";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import BookRepairLayout from "../../components/Layout/BookRepairLayout";
 import mobile from "../../app/utils/brands.json";
 import issue from "../../app/utils/issues.json";
 import Creatable from 'react-select/creatable';
 import Select from 'react-select';
-export default function BookARepair() {
+import { useGetRepairDataQuery } from "../../app/store/apiSlice";
+export default function BookARepair({ options }) {
+  const { colors, currentDate, issues, mobiles, timeSlots } = options;
   const router = useRouter();
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  const [brandModel, setBrandModel] = useState([])
+  console.log(brandModel);
+  // const { data: options, error, isLoading } = useGetRepairDataQuery()
+
   return (
     <>
       <h2 className="font-light text-4xl text-darkLight mb-8">Book a repair</h2>
       <div className="form_group">
-      
+
         <div className="grid grid-cols-12 gap-4 mb-8 traplace">
           <div className="col-span-6 multiseletform">
-            <Creatable 
-            options={options} 
-            placeholder="Select Brand hello"
-            className="book-form-container"
-            classNamePrefix="book-form"
+            <Creatable
+              options={mobiles.map(({ name }) => ({ value: name, label: name }))}
+              onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
+              placeholder="Select Brand hello"
+              className="book-form-container"
+              classNamePrefix="book-form"
             />
           </div>
           <div className="col-span-6 multiseletform">
-            <Creatable 
-            options={options} 
-            placeholder="Select Model"
-            className="book-form-container"
-            classNamePrefix="book-form"
+            <Creatable
+              options={brandModel}
+              placeholder="Select Model"
+              className="book-form-container"
+              classNamePrefix="book-form"
             />
           </div>
           <div className="col-span-12 multiseletform">
-            <Select 
-            options={options} 
-            placeholder="Select Color"
-            className="book-form-container"
-            classNamePrefix="book-form"
+            <Select
+              options={colors.map(({ name }) => ({ value: name, label: name }))}
+              placeholder="Select Color"
+              className="book-form-container"
+              classNamePrefix="book-form"
             />
           </div>
           <div className="col-span-12 multiseletform">
-            <Creatable  
-            options={options} 
-            isMulti
-            placeholder="Issue with Device"
-            className="book-form-container"
-            classNamePrefix="book-form"
+            <Creatable
+              options={issues.map(({ name }) => ({ value: name, label: name }))}
+              isMulti
+              placeholder="Issue with Device"
+              className="book-form-container"
+              classNamePrefix="book-form"
             />
           </div>
           <div className="col-span-6 multiseletform">
             <input type="date" name="" className="w-full black-glass-repair" id="" />
           </div>
           <div className="col-span-6 multiseletform">
-            <Select 
-            options={options} 
-            placeholder="Select Time"
-            className="book-form-container"
-            classNamePrefix="book-form"
+            <Select
+              options={timeSlots.map(({ slot: name }) => ({ value: name, label: name }))}
+              placeholder="Select Time"
+              className="book-form-container"
+              classNamePrefix="book-form"
             />
           </div>
         </div>
@@ -93,3 +95,14 @@ export default function BookARepair() {
 BookARepair.getLayout = function (page) {
   return <BookRepairLayout>{page}</BookRepairLayout>;
 };
+
+
+export async function getStaticProps() {
+  const res = await fetch('https://api.devicecure.in/data/repair')
+  const options = await res.json()
+  return {
+    props: {
+      options,
+    },
+  }
+}
