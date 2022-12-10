@@ -2,16 +2,24 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useGetAddressQuery } from '../../app/store/apiSlice'
+import { setAddressId } from '../../app/store/repairOrederSlice'
 import BookRepairLayout from '../../components/Layout/BookRepairLayout'
 export default function Address() {
     const router = useRouter()
+    const dispatch = useDispatch()
     const { data, error, isLoading } = useGetAddressQuery()
     const [selected,setSelected]=useState()
     useEffect(()=>{
-        setSelected(data[0]._id)
+        if(data instanceof Array && data[0]?._id) setSelected(data[0]._id)
     },[data])
 
+    const handleContinue = (id)=>{
+        dispatch(setAddressId(id))  
+        router.push('/book-a-repair/review')  
+    }
+  
 
     return (
         <>
@@ -32,12 +40,12 @@ export default function Address() {
                         state,
                         pincode
 
-                }) => <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl" key={_id} onClick={"" }>
+                }) => <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl" key={_id} onClick={()=>{setSelected(_id)} }>
                     <div className="flex flex-col sm:flex-row">
                         <div className="left">
                             <div className="flex items-center mb-2">
-                                <input type="radio" name="" id="" />
-                                <h3 className='ml-2 text-primary font-medium text-xl'>Home Address</h3>
+                                <input type="radio" name="" id="" checked={selected==_id} />
+                                <h3 className='ml-2 text-primary font-medium text-xl'>{addressType} Address</h3>
                             </div>
                             <p className='text-gray-500 mb-2'>{`${plotNumber}, ${area} ,${city}, ${state} - ${pincode}`}</p>
                             <p className='text-gray-500 mb-2'><b>Mobile: </b>{phoneNumber}</p>
@@ -50,27 +58,7 @@ export default function Address() {
                 </div>)
 
             }
-
-            <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl" onClick={""}>
-                <div className="flex flex-col sm:flex-row">
-                    <div className="left">
-                        <div className="flex items-center mb-2">
-                            <input type="radio" name="" id="" />
-                            <h3 className='ml-2 text-primary font-medium text-xl'>Home Address</h3>
-                        </div>
-                        <p className='text-gray-500 mb-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum autem, quaerat obcaecati ad reprehenderit velit ex incidunt reiciendis!</p>
-                        <p className='text-gray-500 mb-2'><b>Mobile: </b>142464354</p>
-                    </div>
-                    <div className="right sm:w-28 w-full flex justify-end sm:block">
-                        <img src="/options.svg" alt="" className='w-12 h-12 sm:mb-4 mr-4' />
-                        <img src="/trash.svg" alt="" className='w-14 h-14 sm:mb-4 mr-4' />
-                    </div>
-                </div>
-            </div>
-
-
-
-            <button className='brand-btn' onClick={() => router.push('/book-a-repair/review')}>
+            <button className='brand-btn' onClick={handleContinue}>
                 Continue
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

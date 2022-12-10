@@ -3,77 +3,61 @@ import React, { useRef, useState } from "react";
 import mobile from "../../../app/utils/brands.json";
 import issue from "../../../app/utils/issues.json";
 import { Dialog } from '@headlessui/react';
-import Select from 'react-tailwindcss-select';
 import { useGetRepairDataQuery } from "../../../app/store/apiSlice";
+import Creatable from 'react-select/creatable';
+import Select from 'react-select';
 
+export default function Form({ options }) {
+  const { colors, currentDate, issues, mobiles, timeSlots } = options;
 
-export default function Form() {
   const [modelList, setModelList] = useState([]);
   const [modalVis, setModalVis] = useState(false)
   const { data, error, isLoading } = useGetRepairDataQuery()
+  const [brandModel, setBrandModel] = useState([])
+
   const router = useRouter()
   const inpRef = useRef(null)
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-xl flex items-center" style={{
-    }}>
-      <video id="background-video" loop autoPlay muted data-autoplay className="w-full h-full object-cover absolute top-0 left-0 z-0">
+    <div className="w-full h-full relative overflow-hidden rounded-xl flex items-center" style={{ background: `url(/book_a_repair_bg.webp) no-repeat center center/cover` }}>
+
+      {/* <video id="background-video" loop autoPlay muted data-autoplay className="w-full h-full object-cover absolute top-0 left-0 z-0">
         <source src={`/lottieform.mp4`} type="video/mp4" />
         bro update your browser
-      </video>
-      <div className="form_group z-40 py-12 px-8">
+      </video> */}
+      <div className="form_group w-full z-40 py-12 px-8">
         <div className="flex mb-8">
-          <button className="brand-btn mr-4 grow">Repair</button>
+          {/* <button className="brand-btn mr-4 grow">Repair</button>
           <button className="brand-btn-secondary grow">
             Protection Plan
-          </button>
+          </button> */}
+          <h2 className="text-4xl font-extrabold text-[#00000099]">Book A Repair</h2>
         </div>
-        <form action="#" className="traplace">
-          <select
-            onChange={({ target: { value } }) => {
-              setModelList(
-                data.mobiles.find((mb) => mb.name == value)?.models || []
-              );
-            }}
-            placeholder="Enter your brand"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
-          >
-            <option value="" disabled selected>Select Brand</option>
-
-            {data?.mobiles && data.mobiles.map(({ name: name }) => {
-              return <option key={name} value={name} >{name}</option>;
-            })}
-          </select>
+          <Creatable
+            options={mobiles.map(({ name }) => ({ value: name, label: name }))}
+            onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
+            placeholder="Select Brand"
+            className="book-form-container w-full my-6"
+            classNamePrefix="book-form"
+          />
 
 
-          <select
-
-            placeholder="Enter your model"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
-          >
-            <option value="" disabled selected>Select Model</option>
-
-            {modelList.map((model_name, ind) => {
-              return <option key={ind} value={model_name} >{model_name}</option>;
-            })}
-          </select>
+          <Creatable
+            options={brandModel}
+            placeholder="Select Model"
+            className="book-form-container w-full my-6"
+            classNamePrefix="book-form"
+          />
 
 
-          <select
-            placeholder="Enter your brand"
-            className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md focus:text-gray-700 focus:bg-white focus:border-blue-600"
-          >
-            <option value="" disabled selected>Pick an issue</option>
+          <Creatable
+            options={issues.map(({ name }) => ({ value: name, label: name }))}
+            isMulti
+            placeholder="Issue with Device"
+            className="book-form-container w-full my-6"
+            classNamePrefix="book-form"
+          />
 
-            {data?.issues.map(({ name }, ind) => {
-              return <option key={ind} value={name} >{name}</option>;
-            })}
-          </select>
-
-          {/* <datalist id="issue">
-            {issue.map(({ name }, ind) => {
-              return <option key={ind} value={name} />;
-            })}
-          </datalist> */}
+       
           <button className="brand-btn" onClick={() => router.push('/book-a-repair/review')}>
             Continue
             <svg
@@ -91,7 +75,6 @@ export default function Form() {
               />
             </svg>
           </button>
-        </form>
       </div>
     </div >
   );

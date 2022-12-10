@@ -16,7 +16,7 @@ export default function BookRepairLayout({ children }) {
   const activeIndex = steps.indexOf
   return (
     <Transition>
-      <div className="container py-8">
+      {/* <div className="container py-8">
         <div className="grid grid-cols-12 gap-6 place-items-center">
           <div className="col-span-12 lg:col-span-6">
             <h1 className="brand-heading text-center lg:text-left mb-6">page under <span>construction!</span></h1>
@@ -34,16 +34,16 @@ export default function BookRepairLayout({ children }) {
             <Lottie animationData={lottieAnimation} loop={true}  width={"100%"}/>
           </div>
         </div>
-      </div>
+      </div> */}
       
-      {/* <div className="book_a_repair_bg">
+      <div className="book_a_repair_bg">
         <div className="container">
           <div className="grid grid-cols-12 gap-4 w-full py-12">
             <a href="#" className="col-span-12">
               <img src="/logo_full_land.png" alt="brand_logo " className='block md:hidden w-60 mx-auto mb-6' />
             </a>
             <div className="col-span-12 xl:col-span-3 lg:col-span-4 white-glass-repair pt-6 pb-2 lg:py-16 px-6 rounded-xl flex lg:flex-col  items-center justify-between">
-              <a href="#" className="hidden lg:block"><img src="/logo_full_land.png" alt="" className="w-52" /></a>
+              <Link href="/" className="hidden  lg:block"><img src="/logo_full_land.png" alt="" className="w-52 cursor-pointer" /></Link>
 
               <div className="flex items-center mb-4">
                 <div className="step Complete"><p>1</p></div>
@@ -63,7 +63,7 @@ export default function BookRepairLayout({ children }) {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </Transition>
   );
 }
