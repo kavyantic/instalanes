@@ -17,7 +17,7 @@ export default function Form() {
     <div className="w-full h-full relative overflow-hidden rounded-xl flex items-center" style={{
     }}>
       <video id="background-video" loop autoPlay muted data-autoplay className="w-full h-full object-cover absolute top-0 left-0 z-0">
-        <source src="/lottieform.mp4" type="video/mp4" />
+        <source src={`/lottieform.mp4`} type="video/mp4" />
         bro update your browser
       </video>
       <div className="form_group z-40 py-12 px-8">
