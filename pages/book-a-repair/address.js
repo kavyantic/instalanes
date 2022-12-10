@@ -1,8 +1,18 @@
 import { useRouter } from 'next/router'
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useGetAddressQuery } from '../../app/store/apiSlice'
 import BookRepairLayout from '../../components/Layout/BookRepairLayout'
 export default function Address() {
     const router = useRouter()
+    const { data, error, isLoading } = useGetAddressQuery()
+    const [selected,setSelected]=useState()
+    useEffect(()=>{
+        setSelected(data[0]._id)
+    },[data])
+
+
     return (
         <>
             <h2 className='font-light text-4xl text-darkLight mb-8'>Book a repair</h2>
@@ -10,7 +20,38 @@ export default function Address() {
                 <img src='/plus.webp' alt="" className='w-12' />
                 <p>Add new address</p>
             </a>
-            <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl">
+            {
+                data?.map(({
+                        _id,
+                        addressType,
+                        phoneNumber,
+                        area,
+                        plotNumber,
+                        landmark,
+                        city,
+                        state,
+                        pincode
+
+                }) => <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl" key={_id} onClick={"" }>
+                    <div className="flex flex-col sm:flex-row">
+                        <div className="left">
+                            <div className="flex items-center mb-2">
+                                <input type="radio" name="" id="" />
+                                <h3 className='ml-2 text-primary font-medium text-xl'>Home Address</h3>
+                            </div>
+                            <p className='text-gray-500 mb-2'>{`${plotNumber}, ${area} ,${city}, ${state} - ${pincode}`}</p>
+                            <p className='text-gray-500 mb-2'><b>Mobile: </b>{phoneNumber}</p>
+                        </div>
+                        <div className="right sm:w-28 w-full flex justify-end sm:block">
+                            <img src="/options.svg" alt="" className='w-12 h-12 sm:mb-4 mr-4' />
+                            <img src="/trash.svg" alt="" className='w-14 h-14 sm:mb-4 mr-4' />
+                        </div>
+                    </div>
+                </div>)
+
+            }
+
+            <div className="mb-6 white-glass p-4 sm:p-8 rounded-xl" onClick={""}>
                 <div className="flex flex-col sm:flex-row">
                     <div className="left">
                         <div className="flex items-center mb-2">
@@ -26,6 +67,9 @@ export default function Address() {
                     </div>
                 </div>
             </div>
+
+
+
             <button className='brand-btn' onClick={() => router.push('/book-a-repair/review')}>
                 Continue
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline">

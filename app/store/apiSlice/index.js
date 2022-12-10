@@ -49,9 +49,10 @@ const api = createApi({
       }),
     }),
     getRepairData: builder.query({ query: () => "/data/repair" }),
+    getAddress:builder.query({query:()=>"/address"})
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation,useGetRepairDataQuery } = api;
+export const { useLoginMutation, useRegisterMutation,useGetRepairDataQuery , useGetAddressQuery} = api;
 
 export default api;
