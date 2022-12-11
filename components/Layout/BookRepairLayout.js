@@ -43,7 +43,7 @@ export default function BookRepairLayout({ children }) {
               <img src="/logo_full_land.png" alt="brand_logo " className='block md:hidden w-60 mx-auto mb-6' />
             </a>
             <div className="col-span-12 xl:col-span-3 lg:col-span-4 white-glass-repair pt-6 pb-2 lg:py-16 px-6 rounded-xl flex lg:flex-col  items-center justify-between">
-              <a href="#" className="hidden lg:block"><img src="/logo_full_land.png" alt="" className="w-52" /></a>
+              <Link href="/" className="hidden  lg:block"><img src="/logo_full_land.png" alt="" className="w-52 cursor-pointer" /></Link>
 
               <div className="flex items-center mb-4">
                 <div className="step Complete"><p>1</p></div>

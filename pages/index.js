@@ -10,11 +10,11 @@ import SeoSection from "../components/homeComponent/Seo";
 
 
 
-export default function Home() {
+export default function Home({options}) {
   return (
     <div>
 
-      <HeroSection />
+      <HeroSection options={options}/>
       <Brand />
       <Slider />
       <WhyChoose />
@@ -34,3 +34,13 @@ Home.getLayout = function getLayout(page) {
   )
 }
 
+
+export async function getStaticProps() {
+  const res = await fetch('https://api.devicecure.in/data/repair')
+  const options = await res.json()
+  return {
+    props: {
+      options,
+    },
+  }
+}

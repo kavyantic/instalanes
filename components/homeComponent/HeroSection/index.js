@@ -2,13 +2,13 @@ import React from "react";
 import Banner from "./Banner";
 import Form from "./Form";
 
-export default function HeroSection() {
+export default function HeroSection({options}) {
   return (
     <section className="hero mt-4 lg:mt-8">
       <div className="container">
         <div className="grid grid-cols-12 gap-6">
             <div className="lg:col-span-5 xl:col-span-4 hidden lg:block">
-              <Form />
+              <Form options={options}/>
             </div>
             <div className="col-span-12 lg:col-span-7 xl:col-span-8">
               <h1 className="brand-heading text-center lg:text-left mb-6">
