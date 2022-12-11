@@ -80,7 +80,6 @@ export default function Testimonial() {
 }
 function TestimonialCard(props){
   const [viewMore, setViewMore] = useState(true)
-  console.log(props.user.backgroundUrl)
   return (
     <div className="px-2">
       <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer testi_box">
