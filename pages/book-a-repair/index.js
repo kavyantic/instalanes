@@ -49,7 +49,7 @@ export default function BookARepair({ options }) {
 
   return (
     <>
-      {/* <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Book a repair</h2>
+      <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Book a repair</h2>
       <div className="form_group">
 
        <form onSubmit={handleContinue}>
@@ -129,7 +129,7 @@ export default function BookARepair({ options }) {
         </button>
        </form>
         
-      </div> */}
+      </div>
     </>
   );
 }

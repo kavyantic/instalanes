@@ -714,7 +714,19 @@ input[type=number] {
 
     background-color: rgba(0, 0, 0, 0.5);
 }
-
-
-
+// end here 
+// this area is for otp field 
+.otp_field{
+    div {
+        input{
+            background-color: transparent !important;
+            border-bottom: 2px solid white !important;
+            color: white;
+            text-align: center;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
 // end here 

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {useLoginMutation} from '../../app/store/apiSlice'
 import { setPhone } from "../../app/store/authSlice";
+import VerifyOtp from '../../components/auth/VerifyOtp';
 
 export default function Verify() {
   const redirectTo = useSelector((s) => s.ui.redirects.successLogin);
@@ -33,6 +34,6 @@ export default function Verify() {
     }
   };
   return (
-    <div>Verify</div>
+    <VerifyOtp formTitle="Enter Your OTP"/>
   )
 }
