@@ -76,7 +76,12 @@ section {
         width: 2rem;
     }
 }
-
+@media (max-width: 768px){
+    .brand-btn{
+        padding: .5rem 1rem;
+        font-size: 12px;
+    }
+}
 /* this area is for navbar  */
 .brand_navbar {
     background-color: rgba(255, 255, 255, 0.7);

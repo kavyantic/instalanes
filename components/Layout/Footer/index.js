@@ -11,9 +11,9 @@ const links = [
 ];
 
 const impLinks = [
-  { link: "https://api.devicecure.in/privacy-policy", name: "Privacy Policy" },
-  { link: "https://api.devicecure.in/warranty-policy", name: "Warranty Policy" },
-  { link: "https://api.devicecure.in/terms-conditions", name: "Terms & Conditions" },
+  { link: "https://laravel.devicecure.in/privacy-policy", name: "Privacy Policy" },
+  { link: "https://laravel.devicecure.in/warranty-policy", name: "Warranty Policy" },
+  { link: "https://laravel.devicecure.in/terms-conditions", name: "Terms & Conditions" },
   // { link: "", name: "Warranty Claim" },
   // { link: "", name: "Refer & Earn" },
 ];
