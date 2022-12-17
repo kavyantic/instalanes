@@ -20,7 +20,7 @@ const impLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-8 mt-4 lg:mt-8">
+    <footer className="py-8 mt-4 mb-[110px] md:mb-[70px] lg:mb-[0px] lg:mt-8">
       <div className="container">
         <div className="footer_col p-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
           <div className="grid grid-cols-12 gap-4">

@@ -155,9 +155,9 @@ export default function Header() {
       {/* this is the menu panel for mobile view   */}
       <div className="bottom-nav">
         <div className="container">
-          <div className="tabing grid grid-cols-2 gap-2 bg-[#E3CDFF] p-2 my-2 place-content-stretch rounded-md md:hidden">
-            <button onClick={() => { setIsType('isService'); changeType(!newType) }} className={classNames(newType ? "bg-white text-primary" : "bg-transparent text-primary", "col-span-1 duration-500 text-center rounded-md py-1")}>Services</button>
-            <button onClick={() => { setIsType('isInfo'); changeType(!newType) }} className={classNames(newType ? "bg-transparent text-primary" : "bg-white text-primary", "col-span-1 duration-500 text-center rounded-md py-1")}>Info</button>
+          <div className="tabing grid grid-cols-2 gap-1 bg-[#E3CDFF] p-1 mb-2 place-content-stretch rounded-md md:hidden">
+            <button onClick={() => { setIsType('isService'); changeType(!newType) }} className={classNames(newType ? "bg-white text-primary" : "bg-transparent text-primary", "col-span-1 duration-500 text-center rounded-md py-1 text-[10px]")}>Services</button>
+            <button onClick={() => { setIsType('isInfo'); changeType(!newType) }} className={classNames(newType ? "bg-transparent text-primary" : "bg-white text-primary", "col-span-1 duration-500 text-center rounded-md py-1 text-[10px]")}>Info</button>
           </div>
           <div className="flex items-center justify-between gap-2 md:gap-4">
             {navigation.map((item) => {
@@ -167,13 +167,13 @@ export default function Header() {
                   key={item.name}
                   onClick={() => { navTo(item.href) }}
                   aria-current={current ? "page" : undefined}
-                  className={`${item.type}_link ${isType}`}
+                  className={`${item.type}_link ${isType} selectNone`}
                   >
                   <div 
                     className={classNames(
                       current
                         ? "bottom-active bg-[#E3CDFF]"
-                        : "bg-transparent", `md:py-4 md:px-4 py-3 px-5 md:rounded-md rounded-full flex md:flex-row flex-col justify-center items-center cursor-pointer duration-400`
+                        : "bg-transparent", `md:py-4 md:px-4 py-0 px-0 w-[60px] h-[60px] md:w-auto md:h-auto md:rounded-md rounded-full flex md:flex-row flex-col justify-center items-center cursor-pointer duration-400`
                     )}
                   >
                     <img src={item.icon} alt={`${item.name} mobile icon`}
@@ -181,7 +181,7 @@ export default function Header() {
                         current
                           ? "grayscale-0"
                           : "grayscale"
-                        , "md:w-[16px] md:h-[16px] w-[30px] h-[30px] md:mr-2 mb-1 md:md-0 duration-400"
+                        , "md:w-[16px] md:h-[16px] w-[26px] h-[26px] md:mr-2 mb-1 md:md-0 duration-400"
                       )}
                     />
                     <p
@@ -189,7 +189,7 @@ export default function Header() {
                         current
                           ? "text-primary"
                           : "text-secondary"
-                        , "text-[14px] font-normal duration-400"
+                        , "text-[10px] md:text-[14px] font-normal duration-400"
                       )}
                     >
                       {item.nameMobile}

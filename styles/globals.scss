@@ -16,7 +16,11 @@ $yellow: #FFDA58;
 $green: #60C84F;
 $light-voilet: #E3CDFF;
 
+html{
+    scroll-behavior: smooth;
+}
 body {
+    scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -163,7 +167,16 @@ section {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     box-shadow: -1px 0px 6px 0px #0000002b;
-    @apply lg:hidden z-50 md:py-3 py-2 fixed bottom-0 w-full top-auto rounded-t-3xl;
+    @apply lg:hidden z-50 md:py-3 py-2 fixed bottom-0 w-full top-auto;
+}
+.selectNone, .choose_card {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 @media(max-width: 768px){
     .isInfo.service_link{
@@ -701,7 +714,19 @@ input[type=number] {
 
     background-color: rgba(0, 0, 0, 0.5);
 }
-
-
-
+// end here 
+// this area is for otp field 
+.otp_field{
+    div {
+        input{
+            background-color: transparent !important;
+            border-bottom: 2px solid white !important;
+            color: white;
+            text-align: center;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
 // end here 
