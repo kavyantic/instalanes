@@ -8,42 +8,42 @@ var baseUrl = "https://api.devicecure.in";
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl,
-    prepareHeaders: async (headers, { getState }) => {
-      const token = localStorage.getItem("token");
-      if (isInitial && token ) {
-        isInitial = false;
-        store.dispatch(setAuthLoading(true));
-        console.log(process.env);
-        const res = await fetch(`${baseUrl}/me`, {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await res.json();
-        if (data && data.data) {
-          console.log("users info recieved : ", data);
-          store.dispatch(setAuth({ ...data.data, access_token: token }));
-        }
-        store.dispatch(setAuthLoading(false));
-      }
-      // const storageToken = localStorage.getItem("token");
-      if (getState().auth.token || token) {
-        headers.set("authorization", `Bearer ${token || storageToken}`);
-      }
-      return headers;
-    },
+    // prepareHeaders: async (headers, { getState }) => {
+    //   const token = localStorage.getItem("token");
+    //   if (isInitial && token ) {
+    //     isInitial = false;
+    //     store.dispatch(setAuthLoading(true));
+    //     console.log(process.env);
+    //     const res = await fetch(`${baseUrl}/me`, {
+    //       headers: {
+    //         authorization: `Bearer ${token}`,
+    //       },
+    //     });
+    //     const data = await res.json();
+    //     if (data && data.data) {
+    //       console.log("users info recieved : ", data);
+    //       store.dispatch(setAuth({ ...data.data, access_token: token }));
+    //     }
+    //     store.dispatch(setAuthLoading(false));
+    //   }
+    //   // const storageToken = localStorage.getItem("token");
+    //   if (getState().auth.token || token) {
+    //     headers.set("authorization", `Bearer ${token || storageToken}`);
+    //   }
+    //   return headers;
+    // },
   }),
   endpoints: (builder) => ({
     login: builder.mutation({
       query: ({ firebaseIdToken }) => ({
-        url: "/api/v1/auth/signin",
+        url: "/auth/signin",
         method: "POST",
         body: { firebaseIdToken },
       }),
     }),
     register: builder.mutation({
       query: (credentials) => ({
-        url: "api/v1/auth/signup",
+        url: "/auth/signup",
         method: "POST",
         body: {...credentials },
       }),

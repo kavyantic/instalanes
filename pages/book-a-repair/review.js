@@ -2,10 +2,15 @@ import { Fragment, useRef, useState } from "react";
 import BookRepairLayout from "../../components/Layout/BookRepairLayout";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+
+
 
 export default function Review() {
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
+  const { mobile: { brand, model }, color, issues, repairDate, timeSlotId, addressId } = useSelector(s => s.repairOrder)
+
   return (
     <>
       <h2 className="text-2xl font-medium text-primary mb-4">Order Details</h2>
@@ -16,13 +21,13 @@ export default function Review() {
           className="w-16"
         />
         <div className="ml-4 detail">
-          <p className="text-secondary text-lg mb-1">Iphone 13 pro max</p>
-          <p className="text-secondary text-lg mb-1">space gray</p>
+          <p className="text-secondary text-lg mb-1">{`${brand} ${model}`}</p>
+          <p className="text-secondary text-lg mb-1">{color}</p>
         </div>
       </div>
       <div className="mb-8">
         <p className="text-secondary text-lg mb-1 font-light">
-          <span className="font-medium">Repairing Date:</span> 12-10-22
+          <span className="font-medium">Repairing Date:</span> {repairDate}
         </p>
         <p className="text-secondary text-lg mb-1 font-light">
           <span className="font-medium">Time slot:</span> 01:30 pm
