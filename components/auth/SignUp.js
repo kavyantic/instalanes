@@ -64,8 +64,8 @@ and
                       &nbsp; Privacy Notice.
                     </a>
                   </p>
-                  <button className="brand-btn">
-                    Get OTP
+                  <button className="brand-btn" type="submit">
+                    Create account
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

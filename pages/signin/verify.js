@@ -15,6 +15,7 @@ const useLogin = () => {
 const dispatch = useDispatch()
   useEffect(() => {
     console.log(redirectTo);
+    console.log(data);
     if (data?.token) {
       dispatch(setAuth(data))
 
