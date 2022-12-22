@@ -17,7 +17,7 @@ function classNames(...classes) {
 export default function Header() {
   const router = useRouter();
   const { asPath: currentPath } = router;
-  const isAuth = useSelector(s=>s.auth.isAuthenticated)
+  const isAuth = useSelector(s=>s.auth.isLoggedIn)
   const navTo = (href) => {
     router.push(href)
   }

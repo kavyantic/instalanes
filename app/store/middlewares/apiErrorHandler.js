@@ -16,9 +16,9 @@ const apiErrorHandler = (api) => (next) => (action) => {
     }
 
     switch (Number(status)) {
-      case 401:
+      case 406:
         store.dispatch(setSuccessLoginRedirect(Router.asPath));
-        Router.push("/login");
+        Router.push("/register");
         break;
     }
   }

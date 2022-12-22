@@ -45,7 +45,7 @@ const api = createApi({
       query: (credentials) => ({
         url: "/auth/signup",
         method: "POST",
-        body: {...credentials },
+        body: credentials,
       }),
     }),
     getRepairData: builder.query({ query: () => "/data/repair" }),
