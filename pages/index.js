@@ -7,21 +7,27 @@ import WhyChoose from "../components/homeComponent/WhyChoose";
 import Layout from "../components/Layout";
 import Backdrop from "../components/UI/Backdrop";
 import SeoSection from "../components/homeComponent/Seo";
+import Head from "next/head";
 
 
 
 export default function Home({options}) {
   return (
-    <div>
-
-      <HeroSection options={options}/>
-      <Brand />
-      <Slider />
-      <WhyChoose />
-      <BlogCard />
-      <Testimonial />
-      {/* <SeoSection /> */}
-    </div>
+    <>
+    <Head>
+        <meta name="description" content="Looking for a reliable and fast mobile repairing service in Jaipur? We offer doorstep repairs with a turnaround time of just 59 minutes, as well as online and in-store options. Our team works transparently and offers up to 3 months of warranty on all our repairs."/>
+    </Head>
+      <main>
+        <HeroSection options={options} />
+        <Brand />
+        <Slider />
+        <WhyChoose />
+        <BlogCard />
+        <Testimonial />
+        <SeoSection />
+      </main>
+    </>
+   
   );
 }
 
