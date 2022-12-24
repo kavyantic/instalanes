@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import BookRepairLayout from '../../../components/Layout/BookRepairLayout';
 
 const addAddress = () => {
-    
+    const nameRef = useRef(null)
+    const phoneRef = useRef(null)
+    const altPhoneRef = useRef(null)
+    const pincodeRef = useRef(null)
+    const areaRef = useRef(null)
+    const plotNumberRef = useRef(null)
+    const landmarkRef = useRef(null)
+    // const addressType - 
+
+
+
     return (
         <>
             <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Add New Address</h2>

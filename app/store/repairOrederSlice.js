@@ -22,7 +22,7 @@ const repairOrderSlice = createSlice({
       },
       setAddressId(state,action){
        const id = action.payload
-       state.address_id = id
+       state.addressId = id
       },
       clearFields(state,action){
         state = initialState;

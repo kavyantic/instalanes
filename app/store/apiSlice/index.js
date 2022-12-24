@@ -10,7 +10,7 @@ const api = createApi({
     baseUrl,
     prepareHeaders: async (headers, { getState }) => {
       const token = localStorage.getItem("token");
-      if (isInitial && token ) {
+      if (isInitial && token) {
         isInitial = false;
         store.dispatch(setAuthLoading(true));
         const res = await fetch(`${baseUrl}/me`, {
@@ -19,15 +19,16 @@ const api = createApi({
           },
         });
         const data = await res.json();
-        if (data) {
+        if (res.ok && data) {
           console.log("users info recieved : ", data);
-          store.dispatch(setAuth({ ...data.data, access_token: token }));
+          store.dispatch(setAuth({ ...data, token: token }));
+        } else {
+          console.log("not logged in : ", data);
         }
         store.dispatch(setAuthLoading(false));
       }
-      const storageToken = localStorage.getItem("token");
       if (getState().auth.token || token) {
-        headers.set("authorization", `Bearer ${token || storageToken}`);
+        headers.set("authorization", `Bearer ${token}`);
       }
       return headers;
     },
@@ -48,10 +49,30 @@ const api = createApi({
       }),
     }),
     getRepairData: builder.query({ query: () => "/data/repair" }),
-    getAddress:builder.query({query:()=>"/address"})
+    getAddress: builder.query({ query: () => "/address" }),
+    createAddress: builder.mutation({
+      query: (address) => ({
+        url: "/address",
+        method: "POST",
+        body: address,
+      }),
+    }),
+    createOrder: builder.mutation({
+      query: (order) => ({
+        url: "/order/repair",
+        method: "POST",
+        body: order,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation,useGetRepairDataQuery , useGetAddressQuery} = api;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useGetRepairDataQuery,
+  useGetAddressQuery,
+  useCreateAddressMutation,
+  useCreateOrderMutation } = api;
 
 export default api;

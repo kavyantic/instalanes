@@ -18,17 +18,17 @@ const authSlice = createSlice({
   reducers: {
     setAuth(state,action){
       const {
-        _id,name,email,phone_number,access_token
+        _id,name,email,phone,token
       } = action.payload
       
       return {
         ...state,
         isLoggedIn:true,
-        _id,
+        id:_id,
         name,
         email,
-        phone:phone_number,
-        token:access_token
+        phone,
+        token
       }
 
     },

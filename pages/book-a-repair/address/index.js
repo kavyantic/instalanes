@@ -12,13 +12,16 @@ export default function Address() {
     const router = useRouter()
     const dispatch = useDispatch()
     const { data, error, isLoading } = useGetAddressQuery()
+    
     const [selected,setSelected]=useState()
     useEffect(()=>{
+        console.log(data);
+        if(error?.status == 404) router.replace('address/add')
         if(data instanceof Array && data[0]?._id) setSelected(data[0]._id)
-    },[data])
+    },[data,error])
 
-    const handleContinue = (id)=>{
-        dispatch(setAddressId(id))  
+    const handleContinue = ()=>{
+        dispatch(setAddressId(selected))  
         router.push('/book-a-repair/review')  
     }
 

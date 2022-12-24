@@ -17,10 +17,13 @@ const apiErrorHandler = (api) => (next) => (action) => {
 
     switch (Number(status)) {
       case 406:
-        store.dispatch(setSuccessLoginRedirect(Router.asPath));
         Router.push("/register");
         break;
-    }
+      case 401:
+        store.dispatch(setSuccessLoginRedirect(Router.asPath));
+        Router.push('/login')
+        break;
+    } 
   }
   return next(action);
 };

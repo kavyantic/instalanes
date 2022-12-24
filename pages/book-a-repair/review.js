@@ -1,15 +1,43 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import BookRepairLayout from "../../components/Layout/BookRepairLayout";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useSelector } from "react-redux";
+import { Router, useRouter } from "next/router";
+import { useCreateOrderMutation } from "../../app/store/apiSlice";
 
 
 
 export default function Review() {
   const [open, setOpen] = useState(false);
+  const router = useRouter()
   const cancelButtonRef = useRef(null);
-  const { mobile: { brand, model }, color, issues, repairDate, timeSlotId, addressId } = useSelector(s => s.repairOrder)
+  const [create, { data, error, isLoading }] = useCreateOrderMutation()
+  useEffect(() => {
+    if (data) {
+      setOpen(true)
+      console.log(data);
+    } else {
+      console.log("errored :",error);
+    }
+  }, [data, error])
+  const { mobile: { brand, model,color }, issues, repairDate, timeSlotId, addressId } = useSelector(s => s.repairOrder)
+
+
+  const handleSubmit = () => {
+      create({
+        mobile:{
+          brand,
+          model,
+          color
+        },
+        issues,
+        timeSlotId,
+        addressId,
+        repairDate
+      })
+  }
+
 
   return (
     <>
@@ -70,7 +98,7 @@ export default function Review() {
           </p>
         </details>
       </div>
-      <button className="brand-btn" onClick={() => setOpen(true)}>
+      <button className="brand-btn" onClick={handleSubmit}>
         Place order
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -127,13 +155,11 @@ export default function Review() {
                             as="h3"
                             className="text-lg font-medium leading-6 text-gray-900"
                           >
-                            Deactivate account
+                            Booked successfully
                           </Dialog.Title>
                           <div className="mt-2">
                             <p className="text-sm text-gray-500">
-                              Are you sure you want to deactivate your account?
-                              All of your data will be permanently removed. This
-                              action cannot be undone.
+                              The Order has been successfully submitted. Our technician will be calling you soon.
                             </p>
                           </div>
                         </div>
@@ -143,17 +169,17 @@ export default function Review() {
                       <button
                         type="button"
                         className="brand-btn"
-                        onClick={() => setOpen(false)}
+                        onClick={() => router.push('/myorder')}
                       >
-                        Deactivate
+                        Checkout
                       </button>
                       <button
                         type="button"
                         className="mt-3 text-primary underline"
-                        onClick={() => setOpen(false)}
+                        onClick={() => router.push("/")}
                         ref={cancelButtonRef}
                       >
-                        Cancel
+                        Done
                       </button>
                     </div>
                   </Dialog.Panel>

@@ -12,8 +12,6 @@ import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-
 export default function Header() {
   const router = useRouter();
   const { asPath: currentPath } = router;
@@ -70,9 +68,9 @@ export default function Header() {
                 </div>
                 {/* and this end here  */}
                 {/* this area is for user sign up icon and user profile  */}
-                {isAuth && <button className="col-span-2" onClick={() => router.push('/signin')}> <img src="/login.svg" alt="login icon" className="opacity-70 w-[28px]" /></button>
+                {!isAuth && <button className="col-span-2" onClick={() => router.push('/signin')}> <img src="/login.svg" alt="login icon" className="opacity-70 w-[28px]" /></button>
                 }
-                {!isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
+                {isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>

@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import Lottie from "lottie-react";
 import noorders from "/public/noorders.json"
+
 export default function MyOrder() {
     return (
         <section className="myorder md:min-h-[50vh] min-h-[40vh] mt-4 lg:mt-8">

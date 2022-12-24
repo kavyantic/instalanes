@@ -20,6 +20,7 @@ export default function BookARepair({ options }) {
   const colorRef = useRef(null)
   const issuesRef = useRef(null)
   const timeSlotRef = useRef(null)
+  const dateRef = useRef(null)
   
   
 
@@ -30,15 +31,18 @@ export default function BookARepair({ options }) {
     const color = colorRef.current?.getValue()[0]?.value
     var issues = issuesRef.current?.getValue()
     const timeSlotId  = timeSlotRef.current?.getValue()[0]?.value
+    const repairDate  = dateRef.current?.value
     
-    if(!(brand && model && color && issues?.length>0 && timeSlotId)) return alert("Please enter all fields")
+    
+    if(!(brand && model && color && issues?.length>0 && timeSlotId && repairDate)) return alert("Please enter all fields")
     issues = issues.map(i=>i.value)
     dispatch(setDetails({
       mobile:{
         brand,model,color
       },
       issues,
-      timeSlotId
+      timeSlotId,
+      repairDate
     }))
     router.replace("/book-a-repair/address")
 
@@ -94,7 +98,7 @@ export default function BookARepair({ options }) {
             />
           </div>
           <div className="col-span-6 multiseletform">
-            <input type="date" name="" className="w-full black-glass-repair" id="" />
+            <input type="date" name="data" ref={dateRef} className="w-full black-glass-repair" id="" />
           </div>
           <div className="col-span-6 multiseletform">
             <Select
