@@ -2,23 +2,26 @@ import React from "react";
 import Layout from "../components/Layout";
 import Lottie from "lottie-react";
 import noorders from "/public/noorders.json"
+import { useReadRepairOrderQuery } from "../app/store/apiSlice";
 
 export default function MyOrder() {
+    const {data,error,isLoading} = useReadRepairOrderQuery()
+    console.log(data,error);
     return (
         <section className="myorder md:min-h-[50vh] min-h-[40vh] mt-4 lg:mt-8">
             <div className="container">
                 {/* this show if order is none  change flex with hidden if there's order*/}
-                <div className="flex md:min-h-[50vh] min-h-[40vh] items-center justify-center">
+                {/* <div className="flex md:min-h-[50vh] min-h-[40vh] items-center justify-center">
                     <div>
                         <div className="max-w-[450px] w-4/5 mx-auto">
                             <Lottie animationData={noorders} loop={true} width={"100%"} />
                         </div>
                         <div className="text-primary -mt-6 md:-mt-10 text-xl md:text-3xl rounded-md text-center capitalize"><p>there's no order</p></div>
                     </div>
-                </div>
+                </div> */}
                 {/* end here */}
                 {/* this show if user has order  change grid to hidden if there's no order*/}
-                <div className="hidden grid-cols-2 gap-6 my-2 ">
+                <div className="grid-cols-2 grid gap-12 my-2 ">
                     <div className="col-span-2 lg:col-span-1 rounded-lg overflow-hidden shadow-lg">
                         <div className="bg-primaryLight py-4 px-6">
                             <div className="flex flex-col sm:flex-row gap-2 justify-between items-center">

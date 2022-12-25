@@ -3,7 +3,7 @@ import store from "..";
 import { setAuth } from "../authSlice";
 import { setAuthLoading } from "../uiSlice";
 var isInitial = true;
-var baseUrl = "https://staging.devicecure.in";
+var baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
@@ -64,6 +64,9 @@ const api = createApi({
         body: order,
       }),
     }),
+    readRepairOrder: builder.query({
+      query: () => "/order/repair"
+    })
   }),
 });
 
@@ -73,6 +76,8 @@ export const {
   useGetRepairDataQuery,
   useGetAddressQuery,
   useCreateAddressMutation,
-  useCreateOrderMutation } = api;
+  useCreateOrderMutation,
+
+  useReadRepairOrderQuery } = api;
 
 export default api;

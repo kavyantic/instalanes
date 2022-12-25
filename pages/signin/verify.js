@@ -79,7 +79,7 @@ export default function Verify() {
             />
           </div>
           <button className="brand-btn">
-            Get OTP
+            Verify
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

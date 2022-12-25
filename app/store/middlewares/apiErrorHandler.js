@@ -21,7 +21,7 @@ const apiErrorHandler = (api) => (next) => (action) => {
         break;
       case 401:
         store.dispatch(setSuccessLoginRedirect(Router.asPath));
-        Router.push('/login')
+        Router.push('/signin')
         break;
     } 
   }
