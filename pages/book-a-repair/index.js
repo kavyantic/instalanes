@@ -9,6 +9,8 @@ import { useGetRepairDataQuery } from "../../app/store/apiSlice";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { setDetails } from "../../app/store/repairOrederSlice";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 export default function BookARepair({ options }) {
   const { colors, currentDate, issues, mobiles, timeSlots } = options;
   const router = useRouter();
@@ -46,7 +48,15 @@ export default function BookARepair({ options }) {
 
   }
   // const { data: options, error, isLoading } = useGetRepairDataQuery()
-
+  // this area is  for datepicker 
+  const [startDate, setStartDate] = useState(new Date());
+  const holidays = [
+    new Date (26, 12, 2022),
+  ];
+  console.log(startDate);
+  const minDate = new Date();
+  const maxDate = new Date(new Date().setDate(new Date().getDate() + 7))
+  // end here 
   return (
     <>
       <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Book a repair</h2>
@@ -94,7 +104,8 @@ export default function BookARepair({ options }) {
               />
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform">
-              <input type="date" name="" className="w-full black-glass-repair" id="" />
+              {/* <input type="date" name="" className="w-full black-glass-repair" id="" /> */}
+              <DatePicker selected={startDate} onChange={(date = new Date()) => setStartDate(date)} minDate={minDate} maxDate={maxDate} excludeDates={[new Date("Dec 26, 2022")]}  dateFormat="MMMM d, yyyy"  />
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform">
               <Select
