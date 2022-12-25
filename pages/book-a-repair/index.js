@@ -53,7 +53,6 @@ export default function BookARepair({ options }) {
   const holidays = [
     new Date (26, 12, 2022),
   ];
-  console.log(startDate);
   const minDate = new Date();
   const maxDate = new Date(new Date().setDate(new Date().getDate() + 7))
   // end here 
@@ -103,9 +102,9 @@ export default function BookARepair({ options }) {
                 classNamePrefix="book-form"
               />
             </div>
-            <div className="col-span-12 md:col-span-6 multiseletform">
+            <div className="col-span-12 md:col-span-6 multiseletform relative">
               {/* <input type="date" name="" className="w-full black-glass-repair" id="" /> */}
-              <DatePicker selected={startDate} onChange={(date = new Date()) => setStartDate(date)} minDate={minDate} maxDate={maxDate} excludeDates={[new Date("Dec 26, 2022")]}  dateFormat="MMMM d, yyyy"  />
+              <DatePicker selected={startDate} placeholderText="Enter Date" className="w-full black-glass-repair" onChange={(date = new Date()) => setStartDate(date)} minDate={minDate} maxDate={maxDate} excludeDates={[new Date("Dec 26, 2022")]}  dateFormat="MMMM d, yyyy"  />
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform">
               <Select

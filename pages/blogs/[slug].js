@@ -12,7 +12,7 @@ export default function Blog() {
   const blog = blogs.find(b => b.id == blogId)
   if(blog){
     return (
-      <Layout><BlogSection {...blog} /></Layout>
+      <BlogSection {...blog} />
     )
   } else {
     return <h1>Loading...</h1>
