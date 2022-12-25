@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useCreateAddressMutation } from '../../../app/store/apiSlice';
 import BookRepairLayout from '../../../components/Layout/BookRepairLayout';
 
 const addAddress = () => {
@@ -10,7 +11,21 @@ const addAddress = () => {
     const plotNumberRef = useRef(null)
     const landmarkRef = useRef(null)
     // const addressType - 
-
+    const [create,{data,error,isLoading}] = useCreateAddressMutation()
+    const handleContinue = ()=>{
+        a = {
+            "customerName" : nameRef.current.value,
+            "phoneNumber" : phoneRef.current.value,
+            "altPhoneNumber": altPhoneRef.current.value,
+            "plotNumber" : plotNumberRef.current.value,
+            "landmark": landmarkRef.current.value,
+            "area" : areaRef.current.value,
+            "pincode" : pincodeRef.current.value,
+            "city" : "Jaipur",
+            "state" : "Rajasthan",
+            "addressType" : "HOME"
+        }
+    }
 
 
     return (
@@ -18,6 +33,7 @@ const addAddress = () => {
             <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Add New Address</h2>
             <div className="form_group">
                 <div className="grid grid-cols-12 gap-4 mb-8 traplace">
+                    
                     <div className="col-span-6"><input type="text" name="name" id="" className='w-full black-glass-repair' placeholder='Name' /></div>
                     <div className="col-span-6"><input type="text" name="phone" id="" className='w-full black-glass-repair' placeholder='Mobile Number' /></div>
                     <div className="col-span-6"><input type="text" name="altPhone" id="" className='w-full black-glass-repair' placeholder='Alternate Phone Number (optional)' /></div>
@@ -30,7 +46,7 @@ const addAddress = () => {
                 </div>
                 <button
                     className="brand-btn"
-                    // onClick={handleContinue}
+                    onClick={handleContinue}
                     type="submit"
                 >
                     Continue
