@@ -458,10 +458,16 @@ footer {
     border: 3.5636px solid rgba(255, 255, 255, 0.28);
     backdrop-filter: blur(13.0665px);
     border-radius: 21.3816px;
-
+    
     .white-glass {
         background: rgba(255, 255, 255, 0.37);
         backdrop-filter: blur(0px);
+    }
+    &.error{
+        background: linear-gradient(90deg, rgb(255 134 134 / 88%) 7.59%, rgba(255, 255, 255, 0.39) 102.04%);
+        border-radius: 8px;
+        border-width: 0px;
+
     }
 }
 
@@ -716,7 +722,6 @@ input[type=number] {
     left: 0;
     top: 0;
     backdrop-filter: blur(6px);
-
     background-color: rgba(0, 0, 0, 0.5);
 }
 // end here 

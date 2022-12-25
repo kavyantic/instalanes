@@ -30,7 +30,7 @@ export default function Footer() {
                 href="#"
                 className="flex justify-center space-x-3 md:justify-start mb-4"
               >
-                <img src="./logo_full_land.png" className="w-full md:w-1/2"></img>
+                <img src="/logo_full_land.png" className="w-full md:w-1/2"></img>
               </a>
               <div className="mb-4">
                 <p className="pb-2 text-xl cursor-pointer	 hover:text-primary f-heading">Reach us</p>
@@ -89,7 +89,7 @@ export default function Footer() {
               </div>
               <div className="mb-4">
                 <p className="pb-2 text-xl cursor-pointer	 hover:text-primary f-heading">Download our app</p>
-                <Link href={"https://play.google.com/store/apps/details?id=com.app.devicecure"}><img src="googleplay.png" className="w-full md:w-1/2" /></Link>
+                <Link href={"https://play.google.com/store/apps/details?id=com.app.devicecure"}><img src="/googleplay.png" className="w-full md:w-1/2" /></Link>
               </div>
             </div>
             <div className="col-span-6 text-center md:text-left md:col-span-4 md:border-l border-secondary px-4">
