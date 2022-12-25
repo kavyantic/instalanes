@@ -5,7 +5,7 @@ const BlogSection = ({ id, title, date, content, image, points }) => {
         <div className="detail_blog my-4 lg:my-8">
             <div className="container">
                 <div className="w-full max-w-4xl mx-auto">
-                    <h2 className='brand-heading mb-4'><span>{title}</span></h2>
+                    <h2 className='slider_title mb-4'>{title}</h2>
                     <img src={image} alt="" className='w-full rounded-3xl mb-6' />
                     <p className='text-secondary mb-3'>{content}</p>
                     {
