@@ -32,6 +32,7 @@ const api = createApi({
       }
       return headers;
     },
+    tagTypes: ['Address']
   }),
   endpoints: (builder) => ({
     login: builder.mutation({
@@ -48,11 +49,32 @@ const api = createApi({
         body: credentials,
       }),
     }),
-    getRepairData: builder.query({ query: () => "/data/repair" }),
-    getAddress: builder.query({ query: () => "/address" }),
+    getRepairData: builder.query({
+      query: () => "/data/repair"
+    }),
+    getAddress: builder.query({
+      query: () => ({
+        url: "/address",
+        providesTags: ['Address']
+      })
+    }),
     createAddress: builder.mutation({
       query: (address) => ({
         url: "/address",
+        method: "POST",
+        body: address,
+      }),
+    }),
+    deleteAddress: builder.mutation({
+      query: (addressId) => ({
+        url: `/address/${addressId}`,
+        method: "DELETE",
+        invalidatesTags: ['Address']
+      })
+    }),
+    updateAddress: builder.mutation({
+      query: ({ id, ...address }) => ({
+        url: `/address/${id}`,
         method: "POST",
         body: address,
       }),
@@ -76,8 +98,9 @@ export const {
   useGetRepairDataQuery,
   useGetAddressQuery,
   useCreateAddressMutation,
+  useDeleteAddressMutation,
+  useLazyGetAddressQuery,
   useCreateOrderMutation,
-
   useReadRepairOrderQuery } = api;
 
 export default api;

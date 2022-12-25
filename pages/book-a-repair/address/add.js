@@ -1,8 +1,10 @@
-import React, { useRef } from 'react'
+import Router, { useRouter } from 'next/router';
+import React, { useEffect, useRef } from 'react'
 import { useCreateAddressMutation } from '../../../app/store/apiSlice';
 import BookRepairLayout from '../../../components/Layout/BookRepairLayout';
 
 const addAddress = () => {
+    const router = useRouter()
     const nameRef = useRef(null)
     const phoneRef = useRef(null)
     const altPhoneRef = useRef(null)
@@ -13,7 +15,7 @@ const addAddress = () => {
     // const addressType - 
     const [create,{data,error,isLoading}] = useCreateAddressMutation()
     const handleContinue = ()=>{
-        a = {
+        create( {
             "customerName" : nameRef.current.value,
             "phoneNumber" : phoneRef.current.value,
             "altPhoneNumber": altPhoneRef.current.value,
@@ -24,8 +26,13 @@ const addAddress = () => {
             "city" : "Jaipur",
             "state" : "Rajasthan",
             "addressType" : "HOME"
-        }
+        })
+        
     }
+
+    useEffect(()=>{
+        if(data) router.push('/book-a-repair/address')
+    },[data])
 
 
     return (
@@ -33,14 +40,14 @@ const addAddress = () => {
             <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Add New Address</h2>
             <div className="form_group">
                 <div className="grid grid-cols-12 gap-4 mb-8 traplace">
-                    
-                    <div className="col-span-6"><input type="text" name="name" id="" className='w-full black-glass-repair' placeholder='Name' /></div>
-                    <div className="col-span-6"><input type="text" name="phone" id="" className='w-full black-glass-repair' placeholder='Mobile Number' /></div>
-                    <div className="col-span-6"><input type="text" name="altPhone" id="" className='w-full black-glass-repair' placeholder='Alternate Phone Number (optional)' /></div>
-                    <div className="col-span-6"><input type="text" name="pincode" id="" className='w-full black-glass-repair' placeholder='Pincode' /></div>
-                    <div className="col-span-12"><input type="text" name="" id="" className='w-full black-glass-repair' placeholder='House NO. Apartment Name' /></div>
-                    <div className="col-span-6"><input type="text" name="area" id="" className='w-full black-glass-repair' placeholder='Road, Area, Locality ' /></div>
-                    <div className="col-span-6"><input type="text" name="" id="" className='w-full black-glass-repair' placeholder='Landmark (Optional)' /></div>
+
+                    <div className="col-span-6"><input type="text" ref={nameRef} name="name" id="" className='w-full black-glass-repair' placeholder='Name' /></div>
+                    <div className="col-span-6"><input type="text" ref={phoneRef} name="phone" id="" className='w-full black-glass-repair' placeholder='Mobile Number' /></div>
+                    <div className="col-span-6"><input type="text" ref={altPhoneRef} name="altPhone" id="" className='w-full black-glass-repair' placeholder='Alternate Phone Number (optional)' /></div>
+                    <div className="col-span-6"><input type="text" ref={pincodeRef} name="pincode" id="" className='w-full black-glass-repair' placeholder='Pincode' /></div>
+                    <div className="col-span-12"><input type="text" ref={plotNumberRef} name="" id="" className='w-full black-glass-repair' placeholder='House NO. Apartment Name' /></div>
+                    <div className="col-span-6"><input type="text" ref={areaRef} name="area" id="" className='w-full black-glass-repair' placeholder='Road, Area, Locality ' /></div>
+                    <div className="col-span-6"><input type="text" ref={landmarkRef} name="" id="" className='w-full black-glass-repair' placeholder='Landmark (Optional)' /></div>
                     <div className="col-span-6"><input type="text" name="" id="" className='w-full black-glass-repair' placeholder='Landmark (Optional)' /></div>
 
                 </div>
