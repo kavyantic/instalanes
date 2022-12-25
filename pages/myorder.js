@@ -16,7 +16,7 @@ export default function MyOrder() {
                     </div>
                 </div>
                 {/* end here */}
-                {/* this show if user has order  change grid to hidden if there's no order*/}
+                {/* this show if user has order change grid to hidden if there's no order*/}
                 <div className="hidden grid-cols-2 gap-6 my-2 ">
                     <div className="col-span-2 lg:col-span-1 rounded-lg overflow-hidden shadow-lg">
                         <div className="bg-primaryLight py-4 px-6">

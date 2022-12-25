@@ -59,15 +59,15 @@ export default function VerifyNumber({ formTitle, onSubmitHandler, err }) {
           />
           {err && (
             <div
-              onClose={() => {
-                router.replace(router.pathname, undefined, { shallow: true });
-              }}
-              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          
+              class="white-glass text-red-700 px-4 py-3 rounded relative mb-8"
               role="alert"
             >
-              <strong class="font-bold">Holy smokes!</strong>
+              {/* <strong class="font-bold">{err}</strong> */}
               <span class="block sm:inline"> {err}</span>
-              <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => {
+                router.replace(router.pathname, undefined, { shallow: true });
+              }}>
                 <svg
                   class="fill-current h-6 w-6 text-red-500"
                   role="button"

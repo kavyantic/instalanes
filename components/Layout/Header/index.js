@@ -17,7 +17,7 @@ function classNames(...classes) {
 export default function Header() {
   const router = useRouter();
   const { asPath: currentPath } = router;
-  const isAuth = useSelector(s=>s.auth.isAuthenticated)
+  const isAuth = useSelector(s=>s.auth.isLoggedIn)
   const navTo = (href) => {
     router.push(href)
   }
@@ -70,19 +70,17 @@ export default function Header() {
                 </div>
                 {/* and this end here  */}
                 {/* this area is for user sign up icon and user profile  */}
-                {isAuth && <button className="col-span-2" onClick={() => router.push('/signin')}> <img src="/login.svg" alt="login icon" className="opacity-70 w-[28px]" /></button>
+                {!isAuth && <button className="col-span-2" onClick={() => router.push('/signin')}> <img src="/login.svg" alt="login icon" className="opacity-70 w-[28px]" /></button>
                 }
-                {!isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
+                {isAuth && <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="flex rounded-full text-sm focus:outline-none  items-center gap-1 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
+                        <div className="w-[40px] h-[40px] flex items-center justify-center bg-primaryLight rounded-full">
+                          <p className="font-bold text-xl text-primary">N</p>
+                        </div>
                         <span>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -99,42 +97,25 @@ export default function Header() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Your Profile
-                            </a>
-                          )}
+                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Item >
+                          <div className="bg-primaryLight py-2 px-4 rounded-b-xl">
+                            <p className="text-primary text-xl font-barnd_font ">Hii!</p>
+                            <p className="text-secondary text-xs">Name</p>
+                          </div>
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="#"
+                              onClick={() => router.push('/myorder')}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "flex items-center px-4 rounded-md m-2 py-2 text-sm text-gray-700 cursor-pointer"
                               )}
                             >
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 text-secondary mr-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                              </svg>
                               My Orders
                             </a>
                           )}
@@ -145,9 +126,12 @@ export default function Header() {
                               href="#"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                "flex items-center text-primary px-4 py-2 m-2 text-sm text-gray-700 rounded-md underline"
                               )}
                             >
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                              </svg>
                               Sign out
                             </a>
                           )}

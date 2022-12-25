@@ -1,11 +1,13 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useGetAddressQuery } from '../../app/store/apiSlice'
-import { setAddressId } from '../../app/store/repairOrederSlice'
-import BookRepairLayout from '../../components/Layout/BookRepairLayout'
+import { useGetAddressQuery } from '../../../app/store/apiSlice'
+import { setAddressId } from '../../../app/store/repairOrederSlice'
+import BookRepairLayout from '../../../components/Layout/BookRepairLayout'
+
 export default function Address() {
     const router = useRouter()
     const dispatch = useDispatch()
@@ -19,15 +21,14 @@ export default function Address() {
         dispatch(setAddressId(id))  
         router.push('/book-a-repair/review')  
     }
-  
 
     return (
         <>
-            <h2 className='font-light text-4xl text-darkLight mb-8'>Book a repair</h2>
-            <a href='' className='flex items-center mb-6'>
+            <h2 className='font-light text-4xl text-darkLight mb-8 cursor-pointer'>Book a repair</h2>
+            <div href='/book-a-repair/address/get' className='flex items-center mb-6' onClick={()=>router.push('/book-a-repair/address/add')}>
                 <img src='/plus.webp' alt="" className='w-12' />
                 <p>Add new address</p>
-            </a>
+            </div>
             {
                 data?.map(({
                         _id,

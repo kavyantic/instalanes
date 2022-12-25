@@ -19,6 +19,6 @@ export default function Blog() {
   }
 
 }
-// BlogSection.getLayout = function getLayout(page) {
-//   return <Layout>{page}</Layout>;
-// };
+Blog.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
