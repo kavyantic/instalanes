@@ -10,6 +10,7 @@ import Select from 'react-select';
 export default function Form({ options }) {
   const { colors, currentDate, issues, mobiles, timeSlots } = options;
 
+  
   const [modelList, setModelList] = useState([]);
   const [modalVis, setModalVis] = useState(false)
   const { data, error, isLoading } = useGetRepairDataQuery()
@@ -33,7 +34,8 @@ export default function Form({ options }) {
           <h2 className="text-4xl font-extrabold text-[#00000099]">Book A Repair</h2>
         </div>
           <Creatable
-            options={mobiles.map(({ name }) => ({ value: name, label: name }))}
+          key={"1"}
+            // options={mobiles.map(({ name,_id }) => ({ value: name, label: name, }))}
             onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
             placeholder="Select Brand"
             className="book-form-container w-full my-6"
@@ -42,7 +44,8 @@ export default function Form({ options }) {
 
 
           <Creatable
-            options={brandModel}
+          key={"2"}
+            // options={brandModel}
             placeholder="Select Model"
             className="book-form-container w-full my-6"
             classNamePrefix="book-form"
@@ -50,7 +53,8 @@ export default function Form({ options }) {
 
 
           <Creatable
-            options={issues.map(({ name }) => ({ value: name, label: name }))}
+          key={"3"}
+            // options={issues.map(({ name }) => ({ value: name, label: name }))}
             isMulti
             placeholder="Issue with Device"
             className="book-form-container w-full my-6"

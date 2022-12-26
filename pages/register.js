@@ -1,27 +1,32 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../app/store/apiSlice";
+import { setAuth } from "../app/store/authSlice";
 import SignUp from "../components/auth/SignUp";
 
 export default function Register() {
   const firebaseIdToken = useSelector((s) => s.auth.firebaseIdToken);
+  const [register, { data, error, isLoading }] = useRegisterMutation();
+  const router = useRouter();
+  const dispatch = useDispatch()
+
   useEffect(() => {
     if (!firebaseIdToken) {
       router.replace("/signin");
+      dispatch(setAuth)
     }
   }, [firebaseIdToken]);
 
-  const router = useRouter();
-
-  const [register, { data, error, isLoading }] = useRegisterMutation();
   useEffect(() => {
-    console.log(data);
+    console.log(data,error);
     if (data) {
+      // dispatch(setAuth(data))
       router.replace("/");
     }
-  }, [data]);
+  }, [data,error]);
   const handleFormSubmit = (e) => {
+    e.preventDefault()
     const email = e.target.email;
     const name = e.target.name;
     register({

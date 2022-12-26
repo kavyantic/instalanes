@@ -1,11 +1,61 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import BookRepairLayout from "../../components/Layout/BookRepairLayout";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+import { Router, useRouter } from "next/router";
+import { useCreateOrderMutation, useGetAddressQuery } from "../../app/store/apiSlice";
+
+const serviceHighlights = [
+  { title: "Safe & Secure ", details: "Our engineer does the repair in front of you to keep the process transparent & ensure each mobile component remains intact." },
+  { title: "Trusted & Trained Engineers", details: "Each of our professional has years of experience & is trained by experts to ensure your device is in safest of hands  " }
+  , { title: "Same Day Service ", details: "Fastest possible service at your doorstep as we know how important your device is." },
+  { title: "Payment Post Service", details: "Pay only after the service has been completed." }
+]
 
 export default function Review() {
   const [open, setOpen] = useState(false);
+  const router = useRouter()
   const cancelButtonRef = useRef(null);
+  const [create, { data, error, isLoading }] = useCreateOrderMutation()
+  const { data: addresses } = useGetAddressQuery()
+  const {
+    phone,
+    altPhone,
+    plotNumber,
+    area,
+    pincode,
+    landmark,
+    addressTyp,
+    city,
+    state } = useSelector(s => s.address)
+
+  useEffect(() => {
+    if (data) {
+      setOpen(true)
+      console.log(data);
+    } else {
+      console.log("errored :", error);
+    }
+  }, [data, error])
+  const { mobile: { brand, model, color }, issues, repairDate, timeSlotId, addressId } = useSelector(s => s.repairOrder)
+
+
+  const handleSubmit = () => {
+    create({
+      mobile: {
+        brand,
+        model,
+        color
+      },
+      issues,
+      timeSlotId,
+      addressId,
+      repairDate
+    })
+  }
+
+
   return (
     <>
       <h2 className="text-2xl font-medium text-primary mb-4">Order Details</h2>
@@ -16,56 +66,44 @@ export default function Review() {
           className="w-16"
         />
         <div className="ml-4 detail">
-          <p className="text-secondary text-lg mb-1">Iphone 13 pro max</p>
-          <p className="text-secondary text-lg mb-1">space gray</p>
+          <p className="text-secondary text-lg mb-1">{`${brand} ${model}`}</p>
+          <p className="text-secondary text-lg mb-1">{color}</p>
         </div>
       </div>
       <div className="mb-8">
         <p className="text-secondary text-lg mb-1 font-light">
-          <span className="font-medium">Repairing Date:</span> 12-10-22
+          <span className="font-medium">Repairing Date:</span> {repairDate}
         </p>
         <p className="text-secondary text-lg mb-1 font-light">
           <span className="font-medium">Time slot:</span> 01:30 pm
         </p>
         <p className="text-secondary text-lg mb-1 font-light">
-          your mobile has <span className="font-medium">charging and mic</span>
-          issue
+          your mobile has <span className="font-medium">{issues.join(', ')}</span>
         </p>
       </div>
       <h2 className="text-2xl font-medium text-primary mb-4">
         Address Details
       </h2>
       <div className="mb-8">
-        <p className="text-secondary text-lg mb-1 font-light">
-          <span className="font-medium">Repairing Date:</span> 12-10-22
-        </p>
-        <p className="text-secondary text-lg mb-1 font-light">
-          <span className="font-medium">Time slot:</span> 01:30 pm
-        </p>
+      {`${plotNumber}, ${area}, ${city}, ${state} - ${pincode} `}
       </div>
       <h2 className="text-2xl font-medium text-primary mb-4">
         Service Highlights
       </h2>
       <div className="mb-8">
-        <details className="white-glass mb-3 rounded-lg p-3">
-          <summary class="question py-3 px-4 cursor-pointer select-none w-full outline-none">
-            How is this made?
-          </summary>
-          <p class="pt-1 pb-3 px-4">
-            With the HTML5 <code class="text-sm text-red-500">details</code>{" "}
-            element and some Tailwind for showcase.
-          </p>
-        </details>
-        <details className="white-glass mb-3 rounded-lg p-3">
-          <summary class="question py-3 px-4 cursor-pointer select-none w-full">
-            Can I use it?
-          </summary>
-          <p class="pt-1 pb-3 px-4">
-            Of course. It&apos;s yours to use wherever and whenever you like.
-          </p>
-        </details>
+
+        {
+          serviceHighlights.map(({ title, details }) => <details className="white-glass mb-3 rounded-lg p-3">
+            <summary className="question py-3 px-4 cursor-pointer select-none w-full outline-none">
+              {title}
+            </summary>
+            <p className="pt-1 pb-3 px-4">
+              {details}
+            </p>
+          </details>)
+        }
       </div>
-      <button className="brand-btn" onClick={() => setOpen(true)}>
+      <button className="brand-btn" onClick={handleSubmit}>
         Place order
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -122,13 +160,11 @@ export default function Review() {
                             as="h3"
                             className="text-lg font-medium leading-6 text-gray-900"
                           >
-                            Deactivate account
+                            Booking ID : {data?.bookingId}
                           </Dialog.Title>
                           <div className="mt-2">
                             <p className="text-sm text-gray-500">
-                              Are you sure you want to deactivate your account?
-                              All of your data will be permanently removed. This
-                              action cannot be undone.
+                            The order was submitted successfully. Our executive will contact you shortly.
                             </p>
                           </div>
                         </div>
@@ -138,17 +174,17 @@ export default function Review() {
                       <button
                         type="button"
                         className="brand-btn"
-                        onClick={() => setOpen(false)}
+                        onClick={() => router.push('/myorder')}
                       >
-                        Deactivate
+                        Checkout
                       </button>
                       <button
                         type="button"
                         className="mt-3 text-primary underline"
-                        onClick={() => setOpen(false)}
+                        onClick={() => router.push("/")}
                         ref={cancelButtonRef}
                       >
-                        Cancel
+                        Done
                       </button>
                     </div>
                   </Dialog.Panel>

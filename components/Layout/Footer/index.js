@@ -11,16 +11,16 @@ const links = [
 ];
 
 const impLinks = [
-  { link: "https://api.devicecure.in/privacy-policy", name: "Privacy Policy" },
-  { link: "https://api.devicecure.in/warranty-policy", name: "Warranty Policy" },
-  { link: "https://api.devicecure.in/terms-conditions", name: "Terms & Conditions" },
+  { link: "https://laravel.devicecure.in/privacy-policy", name: "Privacy Policy" },
+  { link: "https://laravel.devicecure.in/warranty-policy", name: "Warranty Policy" },
+  { link: "https://laravel.devicecure.in/terms-conditions", name: "Terms & Conditions" },
   // { link: "", name: "Warranty Claim" },
   // { link: "", name: "Refer & Earn" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="py-8 mt-4 lg:mt-8">
+    <footer className="py-8 mt-4 mb-[110px] md:mb-[70px] lg:mb-[0px] lg:mt-8">
       <div className="container">
         <div className="footer_col p-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
           <div className="grid grid-cols-12 gap-4">
@@ -30,7 +30,7 @@ export default function Footer() {
                 href="#"
                 className="flex justify-center space-x-3 md:justify-start mb-4"
               >
-                <img src="./logo_full_land.png" className="w-full md:w-1/2"></img>
+                <img src="/logo_full_land.png" className="w-full md:w-1/2"></img>
               </a>
               <div className="mb-4">
                 <p className="pb-2 text-xl cursor-pointer	 hover:text-primary f-heading">Reach us</p>
@@ -89,7 +89,7 @@ export default function Footer() {
               </div>
               <div className="mb-4">
                 <p className="pb-2 text-xl cursor-pointer	 hover:text-primary f-heading">Download our app</p>
-                <Link href={"https://play.google.com/store/apps/details?id=com.app.devicecure"}><img src="googleplay.png" className="w-full md:w-1/2" /></Link>
+                <Link href={"https://play.google.com/store/apps/details?id=com.app.devicecure"}><img src="/googleplay.png" className="w-full md:w-1/2" /></Link>
               </div>
             </div>
             <div className="col-span-6 text-center md:text-left md:col-span-4 md:border-l border-secondary px-4">

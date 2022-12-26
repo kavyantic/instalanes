@@ -16,11 +16,14 @@ const apiErrorHandler = (api) => (next) => (action) => {
     }
 
     switch (Number(status)) {
+      case 406:
+        Router.push("/register");
+        break;
       case 401:
         store.dispatch(setSuccessLoginRedirect(Router.asPath));
-        Router.push("/login");
+        Router.push('/signin')
         break;
-    }
+    } 
   }
   return next(action);
 };

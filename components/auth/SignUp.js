@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useRegisterMutation } from "../../app/store/apiSlice";
 
 export default function SignUp({ formTitle, onSubmit }) {
  
 
   return (
-    <div className="authBg" style={`background: url(${'/authbg.webp'})no-repeat center center/cover;`}>
+    <div className="authBg" style={{background: `url(/authbg.webp) no-repeat center center/cover`}}>
       <div className="container">
         <div className="grid grid-cols-12 gap-4 w-full py-12">
           <div className="col-span-12 md:col-start-1 md:col-end-7 lg:col-start-1 lg:col-end-4">
@@ -43,7 +42,7 @@ export default function SignUp({ formTitle, onSubmit }) {
                     name="name"
                     required
                     minLength={3}
-                    autocomplete="off"
+                    autoComplete="off"
                     placeholder="Enter Your Name"
                     className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
                   />
@@ -51,12 +50,12 @@ export default function SignUp({ formTitle, onSubmit }) {
                     type="email"
                     name="email"
                     required
-                    autocomplete="off"
+                    autoComplete="off"
                     placeholder="Enter Your Email"
                     className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
                   />
                   <p className="text-white mb-4">
-                    By continuing, you agree to Devicecure’s
+                    By continuing, you agree to Devicecure's
                     <a href="staging.devicecure.in/terms-conditions" className="text-blue-400">
                       &nbsp;Conditions of Use&nbsp;
                     </a>
@@ -65,8 +64,8 @@ and
                       &nbsp; Privacy Notice.
                     </a>
                   </p>
-                  <button className="brand-btn">
-                    Get OTP
+                  <button className="brand-btn" type="submit">
+                    Create account
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
