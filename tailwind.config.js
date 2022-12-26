@@ -19,6 +19,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        barnd_font: "barnd_font"
       },
     },
     container: {

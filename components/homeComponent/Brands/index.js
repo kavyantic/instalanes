@@ -22,15 +22,15 @@ function SampleNextArrow(props) {
     );
   }
   const brands = [
-    { link: "", icon:"/brand_icons/Apple-logo.webp"},
-    { link: "", icon:"/brand_icons/Huawei-Logo.webp"},
-    { link: "", icon:"/brand_icons/mi.webp"},
-    { link: "", icon:"/brand_icons/motorola.webp"},
-    { link: "", icon:"/brand_icons/oneplus.webp"},
-    { link: "", icon:"/brand_icons/oppo.webp"},
-    { link: "", icon:"/brand_icons/realme.webp"},
-    { link: "", icon:"/brand_icons/samsung.webp"},
-    { link: "", icon:"/brand_icons/vivo.webp"},
+    { link: "#", icon:"/brand_icons/Apple-logo.webp"},
+    { link: "#", icon:"/brand_icons/Huawei-Logo.webp"},
+    { link: "#", icon:"/brand_icons/mi.webp"},
+    { link: "#", icon:"/brand_icons/motorola.webp"},
+    { link: "#", icon:"/brand_icons/oneplus.webp"},
+    { link: "#", icon:"/brand_icons/oppo.webp"},
+    { link: "#", icon:"/brand_icons/realme.webp"},
+    { link: "#", icon:"/brand_icons/samsung.webp"},
+    { link: "#", icon:"/brand_icons/vivo.webp"},
   ];
 export default function Brand() {
     const settings = {
