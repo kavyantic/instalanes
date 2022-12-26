@@ -15,7 +15,7 @@ function classNames(...classes) {
 export default function Header() {
   const router = useRouter();
   const { asPath: currentPath } = router;
-  const isAuth = useSelector(s=>s.auth.isLoggedIn)
+  const {isLoggedIn:isAuth,name} = useSelector(s=>s.auth)
   const navTo = (href) => {
     router.push(href)
   }
@@ -77,7 +77,7 @@ export default function Header() {
                       <Menu.Button className="flex rounded-full text-sm focus:outline-none  items-center gap-1 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
                         <div className="w-[40px] h-[40px] flex items-center justify-center bg-primaryLight rounded-full">
-                          <p className="font-bold text-xl text-primary">N</p>
+                          <p className="font-bold text-xl text-primary">{name[0]}</p>
                         </div>
                         <span>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
@@ -99,7 +99,7 @@ export default function Header() {
                         <Menu.Item >
                           <div className="bg-primaryLight py-2 px-4 rounded-b-xl">
                             <p className="text-primary text-xl font-barnd_font ">Hii!</p>
-                            <p className="text-secondary text-xs">Name</p>
+                            <p className="text-secondary text-xs">{name}</p>
                           </div>
                         </Menu.Item>
                         <Menu.Item>

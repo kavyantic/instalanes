@@ -4,7 +4,6 @@ import { setAuth } from "../authSlice";
 import { setAuthLoading } from "../uiSlice";
 var isInitial = true;
 var baseUrl = process.env.NEXT_PUBLIC_API_URL;
-
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl,
@@ -31,9 +30,8 @@ const api = createApi({
         headers.set("authorization", `Bearer ${token}`);
       }
       return headers;
-    },
-    tagTypes: ['Address']
-  }),
+    }
+    }),
   endpoints: (builder) => ({
     login: builder.mutation({
       query: ({ firebaseIdToken }) => ({
@@ -55,8 +53,8 @@ const api = createApi({
     getAddress: builder.query({
       query: () => ({
         url: "/address",
-        providesTags: ['Address']
-      })
+      }),
+      keepUnusedDataFor: 1,
     }),
     createAddress: builder.mutation({
       query: (address) => ({
@@ -69,7 +67,6 @@ const api = createApi({
       query: (addressId) => ({
         url: `/address/${addressId}`,
         method: "DELETE",
-        invalidatesTags: ['Address']
       })
     }),
     updateAddress: builder.mutation({

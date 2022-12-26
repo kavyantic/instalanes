@@ -22,6 +22,7 @@ export default function BookARepair({ options }) {
   const colorRef = useRef(null)
   const issuesRef = useRef(null)
   const timeSlotRef = useRef(null)
+  const dateRef = useRef(null)
 
 
 
@@ -31,26 +32,18 @@ export default function BookARepair({ options }) {
     const model = modelRef.current?.getValue()[0]?.value
     const color = colorRef.current?.getValue()[0]?.value
     var issues = issuesRef.current?.getValue()
-<<<<<<< HEAD
     const timeSlotId  = timeSlotRef.current?.getValue()[0]?.value
-    const repairDate  = dateRef.current?.value
     
     
-    if(!(brand && model && color && issues?.length>0 && timeSlotId && repairDate)) return alert("Please enter all fields")
+    if(!(brand && model && color && issues?.length>0 && timeSlotId)) return alert("Please enter all fields")
     issues = issues.map(i=>i.value)
-=======
-    const timeSlotId = timeSlotRef.current?.getValue()[0]?.value
-
-    if (!(brand && model && color && issues?.length > 0 && timeSlotId)) return alert("Please enter all fields")
-    issues = issues.map(i => i.value)
->>>>>>> 7006dacdeca6c4310158feb3226439d01dac76dd
     dispatch(setDetails({
       mobile: {
         brand, model, color
       },
       issues,
       timeSlotId,
-      repairDate
+      repairDate:JSON.stringify(startDate).split("T")[0]
     }))
     router.replace("/book-a-repair/address")
 
@@ -126,67 +119,10 @@ export default function BookARepair({ options }) {
               />
             </div>
           </div>
-<<<<<<< HEAD
-          <div className="col-span-6 multiseletform">
-            <Creatable
-            ref={modelRef}
-              options={brandModel}
-              placeholder="Select Model"
-              className="book-form-container"
-              classNamePrefix="book-form"
-            />
-          </div>
-          <div className="col-span-12 multiseletform">
-            <Select
-            ref={colorRef}
-              options={colors.map(({ name }) => ({ value: name, label: name }))}
-              placeholder="Select Color"
-              className="book-form-container"
-              classNamePrefix="book-form"
-            />
-          </div>
-          <div className="col-span-12 multiseletform">
-            <Creatable
-            ref={issuesRef}
-              options={issues.map(({ name }) => ({ value: name, label: name }))}
-              isMulti
-              placeholder="Issue with Device"
-              className="book-form-container"
-              classNamePrefix="book-form"
-            />
-          </div>
-          <div className="col-span-6 multiseletform">
-            <input type="date" name="data" ref={dateRef} className="w-full black-glass-repair" id="" />
-          </div>
-          <div className="col-span-6 multiseletform">
-            <Select
-            ref={timeSlotRef}
-              options={timeSlots.map(({ slot ,_id}) => ({ value: _id, label: slot }))}
-              placeholder="Select Time"
-              className="book-form-container"
-              classNamePrefix="book-form"
-            />
-          </div>
-        </div>
-        <button
-          className="brand-btn"
-          // onClick={handleContinue}
-          type="submit"
-        >
-          Continue
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 inline"
-=======
           <button
             className="brand-btn"
             // onClick={handleContinue}
             type="submit"
->>>>>>> 7006dacdeca6c4310158feb3226439d01dac76dd
           >
             Continue
             <svg

@@ -94,10 +94,10 @@ export default function Review() {
 
         {
           serviceHighlights.map(({ title, details }) => <details className="white-glass mb-3 rounded-lg p-3">
-            <summary class="question py-3 px-4 cursor-pointer select-none w-full outline-none">
+            <summary className="question py-3 px-4 cursor-pointer select-none w-full outline-none">
               {title}
             </summary>
-            <p class="pt-1 pb-3 px-4">
+            <p className="pt-1 pb-3 px-4">
               {details}
             </p>
           </details>)

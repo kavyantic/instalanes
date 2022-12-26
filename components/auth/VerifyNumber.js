@@ -60,16 +60,16 @@ export default function VerifyNumber({ formTitle, onSubmitHandler, err }) {
           {err && (
             <div
           
-              class="white-glass text-red-700 px-4 py-3 rounded relative mb-8"
+              className="white-glass text-red-700 px-4 py-3 rounded relative mb-8"
               role="alert"
             >
-              {/* <strong class="font-bold">{err}</strong> */}
-              <span class="block sm:inline"> {err}</span>
-              <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => {
+              {/* <strong className="font-bold">{err}</strong> */}
+              <span className="block sm:inline"> {err}</span>
+              <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => {
                 router.replace(router.pathname, undefined, { shallow: true });
               }}>
                 <svg
-                  class="fill-current h-6 w-6 text-red-500"
+                  className="fill-current h-6 w-6 text-red-500"
                   role="button"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
