@@ -30,14 +30,16 @@ export default function MyOrder() {
                         userId,
                         issues,
                         status,
+                        bookingId,
+                        addressJson:{area,city,state,pincode,plotNumber,landmark},
                         mobile:{brand,model,color},
                         repairDate,
-                        timeSlotId,
-                        addressId,
+                        timeSlot,
+                        technicianJson,
                         addressJson }) => <div className="col-span-2 lg:col-span-1 rounded-lg overflow-hidden shadow-lg">
                             <div className="bg-primaryLight py-4 px-6">
                                 <div className="flex flex-col sm:flex-row gap-2 justify-between items-center">
-                                    <p className="text-lg font-medium  text-secondary">Booking ID: <span className="text-primary">{String(_id).toLocaleUpperCase()}</span></p>
+                                    <p className="text-lg font-medium  text-secondary">Booking ID: <span className="text-primary">{bookingId}</span></p>
                                     <div>
                                         <p className="text-sm text-secondary font-medium">Status: <span className="text-primary">{status}</span></p>
                                         <p className="text-sm text-secondary font-medium">date: <span className="text-primary">{repairDate?.split('T')[0]}</span></p>
@@ -46,13 +48,16 @@ export default function MyOrder() {
                             </div>
                             <div className="py-4 px-6 bg-white">
                                 <div className="grid grid-cols-2 gap-4">
-                                    <p className="col-span-2 sm:col-span-1">Technician: <span className="text-primary">{technician?.name || "Not yet assigned"}</span></p>
-                                    <p className="col-span-2 sm:col-span-1">Time Slot: <span className="text-primary">{""}</span></p>
+                                    <p className="col-span-2 sm:col-span-1">Technician: <span className="text-primary">{technicianJson?.name || "Not yet assigned"}</span></p>
+                                    <p className="col-span-2 sm:col-span-1">Time Slot: <span className="text-primary">{timeSlot}</span></p>
                                     <p className="col-span-2 sm:col-span-1">Repair Date: <span className="text-primary">{repairDate?.split('T')[0]}</span></p>
                                     <p className="col-span-2 sm:col-span-1">Mobile Brand: <span className="text-primary">{brand}</span></p>
                                     <p className="col-span-2 sm:col-span-1">Mobile Model: <span className="text-primary">{model}</span></p>
                                     <p className="col-span-2 sm:col-span-1">Mobile Color: <span className="text-primary">{color}</span></p>
-                                    <p className="col-span-2">Issue With Phone: <span className="text-primary">{issues.join(",")}</span></p>
+                                    <p className="col-span-2 sm:col-span-1">Address:<span className="text-primary">{color}</span></p>
+
+
+                                    <p className="col-span-2">Address <span className="text-primary">{`${plotNumber}, ${area}, ${city}, ${state} - ${pincode} `}</span></p>
                                     <hr className="col-span-2" />
                                 </div>
                                 <button className="brand-btn mt-4">Download Invoice</button>

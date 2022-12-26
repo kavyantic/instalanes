@@ -4,6 +4,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { setAddress } from '../../../app/store/addressSlice'
 import { useDeleteAddressMutation, useGetAddressQuery, useLazyGetAddressQuery } from '../../../app/store/apiSlice'
 import { setAddressId } from '../../../app/store/repairOrederSlice'
 import BookRepairLayout from '../../../components/Layout/BookRepairLayout'
@@ -52,6 +53,7 @@ export default function Address() {
 
     const handleContinue = () => {
         dispatch(setAddressId(selected))
+        dispatch(setAddress(data.find(ele=>ele._id==selected)))
         router.push('/book-a-repair/review')
     }
 

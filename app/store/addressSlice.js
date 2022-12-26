@@ -3,16 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const addressSlice = createSlice({
   name: "address",
   initialState: {
-      id:'',
+      _id:'',
       name:"",
-      phone_number: "",
-      alternate_number: "",
-      house_number: "",
-      street: "",
-      pin_code: "",
+      phone: "",
+      altPhone: "",
+      plotNumber: "",
+      area: "",
+      pincode: "",
       landmark: "",
-      address_type:"",
-      city:''
+      addressType:"",
+      city:'',
+      state:''
       
   },
   reducers: {

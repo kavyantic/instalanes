@@ -18,7 +18,6 @@ export default function Register() {
     }
   }, [firebaseIdToken]);
 
-
   useEffect(() => {
     console.log(data,error);
     if (data) {
