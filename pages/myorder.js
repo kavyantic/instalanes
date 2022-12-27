@@ -31,12 +31,12 @@ export default function MyOrder() {
                         issues,
                         status,
                         bookingId,
-                        addressJson:{area,city,state,pincode,plotNumber,landmark},
-                        mobile:{brand,model,color},
+                        addressJson: { area, city, state, pincode, plotNumber, landmark },
+                        mobile: { brand, model, color },
                         repairDate,
                         timeSlot,
                         technicianJson,
-                        addressJson }) => <div className="col-span-2 lg:col-span-1 rounded-lg overflow-hidden shadow-lg">
+                        addressJson }) => <div className="col-span-2 lg:col-span-1 rounded-lg overflow-hidden shadow-lg" key={_id}>
                             <div className="bg-primaryLight py-4 px-6">
                                 <div className="flex flex-col sm:flex-row gap-2 justify-between items-center">
                                     <p className="text-lg font-medium  text-secondary">Booking ID: <span className="text-primary">{bookingId}</span></p>

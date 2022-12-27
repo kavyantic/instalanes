@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import { useCreateAddressMutation } from '../../../app/store/apiSlice';
 import BookRepairLayout from '../../../components/Layout/BookRepairLayout';
 
-const addAddress = () => {
+const AddAdderss = () => {
     const router = useRouter()
     const nameRef = useRef(null)
     const phoneRef = useRef(null)
@@ -76,8 +76,10 @@ const addAddress = () => {
         </>
     )
 }
-export default addAddress
 
-addAddress.getLayout = function (page) {
+AddAdderss.getLayout = function (page) {
     return <BookRepairLayout>{page}</BookRepairLayout>;
 };
+
+export default AddAdderss
+

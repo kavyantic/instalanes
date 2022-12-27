@@ -23,7 +23,7 @@ export default function About() {
         <div className="mb-4 simple-col">
           <h2 className="mb-2 slider_title">Our <span>Vision</span></h2>
           <p>We aim to be the go-to choice for customers in need of mobile repairs, offering a convenient and trustworthy service that allows them to get their devices fixed without having to leave their home or office.</p>
-          <p>Our skilled technicians will arrive at the customer's doorstep equipped with the tools and expertise needed to diagnose and repair a wide range of mobile devices, including smartphones, tablets, and other portable electronics.</p>
+          <p>Our skilled technicians will arrive at the customer&apos;s doorstep equipped with the tools and expertise needed to diagnose and repair a wide range of mobile devices, including smartphones, tablets, and other portable electronics.</p>
           <p>We will strive to provide the highest level of service, ensuring that each customer is satisfied with the quality of our repairs and the speed at which they are completed.</p>
           <p>We will also offer competitive pricing, making it affordable for customers to get their mobile devices fixed without having to compromise on the quality of the repair.</p>
           <p>In addition to our core mobile repair services, we will also offer other related services, such as screen replacements, battery replacements, and software updates, to provide customers with a one-stop-shop for all of their mobile repair needs.</p>

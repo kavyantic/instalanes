@@ -31,7 +31,7 @@ const BlogSection = ({ id, title, date, content, image, points, by }) => {
                                 <div className='col-span-2 lg:col-span-1'>
                                     <p className='text-secondary text-sm leading-loose tracking-wider lg:text-lg mb-5'>{content}</p>
                                     {
-                                        points.map(({ title, content }) => <div className='mb-5'>
+                                        points.map(({ title, content },ind) => <div className='mb-5' key={ind}>
                                             <h4 className='text-secondary font-bold text-xl lg:text-2xl mb-1'>{title}</h4>
                                             <p className="text-secondary text-sm leading-loose tracking-wider lg:text-lg">
                                                 {content}</p></div>)

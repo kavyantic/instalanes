@@ -93,7 +93,7 @@ export default function Review() {
       <div className="mb-8">
 
         {
-          serviceHighlights.map(({ title, details }) => <details className="white-glass mb-3 rounded-lg p-3">
+          serviceHighlights.map(({ title, details },ind) => <details key={ind} className="white-glass mb-3 rounded-lg p-3">
             <summary className="question py-3 px-4 cursor-pointer select-none w-full outline-none">
               {title}
             </summary>

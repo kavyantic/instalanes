@@ -55,7 +55,7 @@ export default function SignUp({ formTitle, onSubmit }) {
                     className="text-white white-glass w-full p-4 outline-none focus:outline-none mb-8 rounded-md"
                   />
                   <p className="text-white mb-4">
-                    By continuing, you agree to Devicecure's
+                    By continuing, you agree to Devicecure&apos;s
                     <a href="staging.devicecure.in/terms-conditions" className="text-blue-400">
                       &nbsp;Conditions of Use&nbsp;
                     </a>
