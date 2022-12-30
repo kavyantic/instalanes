@@ -9,15 +9,30 @@ import Select from 'react-select';
 
 export default function Form({ options }) {
   const { colors, currentDate, issues, mobiles, timeSlots } = options;
-
-  
   const [modelList, setModelList] = useState([]);
   const [modalVis, setModalVis] = useState(false)
   const { data, error, isLoading } = useGetRepairDataQuery()
   const [brandModel, setBrandModel] = useState([])
 
   const router = useRouter()
-  const inpRef = useRef(null)
+  const issuesRef = useRef(null)
+  const modelRef = useRef(null)
+  const brandRef = useRef(null)
+  const submit = () => {
+
+    const brand = brandRef.current?.getValue()[0]?.value
+    const model = modelRef.current?.getValue()[0]?.value
+    var issues = issuesRef.current?.getValue()
+    
+    router.push({
+      pathname: "/book-a-repair", query: {
+        defModel: model,
+        defBrand: brand,
+        defIssues: issues?.map(i=>i.value)?.join(',')
+      }
+    })
+  }
+
   return (
     <div className="w-full h-full relative overflow-hidden rounded-xl flex items-center" style={{ background: `url(/book_a_repair_bg.webp) no-repeat center center/cover` }}>
 
@@ -33,52 +48,55 @@ export default function Form({ options }) {
           </button> */}
           <h2 className="text-4xl font-extrabold text-[#00000099]">Book A Repair</h2>
         </div>
-          <Creatable
+        <Creatable
+          ref={brandRef}
           key={"1"}
-            // options={mobiles.map(({ name,_id }) => ({ value: name, label: name, }))}
-            onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
-            placeholder="Select Brand"
-            className="book-form-container w-full my-6"
-            classNamePrefix="book-form"
-          />
+          options={mobiles.map(({ name, _id }) => ({ value: name, label: name, }))}
+          onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
+          placeholder="Select Brand"
+          className="book-form-container w-full my-6"
+          classNamePrefix="book-form"
+        />
 
 
-          <Creatable
+        <Creatable
           key={"2"}
-            // options={brandModel}
-            placeholder="Select Model"
-            className="book-form-container w-full my-6"
-            classNamePrefix="book-form"
-          />
+          options={brandModel}
+          ref={modelRef}
+          placeholder="Select Model"
+          className="book-form-container w-full my-6"
+          classNamePrefix="book-form"
+        />
 
 
-          <Creatable
+        <Creatable
           key={"3"}
-            // options={issues.map(({ name }) => ({ value: name, label: name }))}
-            isMulti
-            placeholder="Issue with Device"
-            className="book-form-container w-full my-6"
-            classNamePrefix="book-form"
-          />
+          options={issues.map(({ name }) => ({ value: name, label: name }))}
+          isMulti
+          ref={issuesRef}
+          placeholder="Issue with Device"
+          className="book-form-container w-full my-6"
+          classNamePrefix="book-form"
+        />
 
-       
-          <button className="brand-btn" onClick={() => router.push('/book-a-repair/review')}>
-            Continue
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 inline"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </button>
+
+        <button className="brand-btn" onClick={submit}>
+          Continue
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 inline"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            />
+          </svg>
+        </button>
       </div>
     </div >
   );

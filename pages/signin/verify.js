@@ -18,7 +18,7 @@ const dispatch = useDispatch()
     console.log(data);
     if (data?.token) {
       dispatch(setAuth(data))
-
+      dispatch(setFirebaseIdToken(data.token))
       router.push(redirectTo || '/')
     }
   }, [data])

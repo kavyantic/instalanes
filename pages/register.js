@@ -21,14 +21,15 @@ export default function Register() {
   useEffect(() => {
     console.log(data,error);
     if (data) {
-      // dispatch(setAuth(data))
+      dispatch(setAuth(data))
       router.replace("/");
     }
   }, [data,error]);
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    const email = e.target.email;
-    const name = e.target.name;
+    const email = e.target.email.value;
+    const name = e.target.name.value;
+    console.log(email,name,firebaseIdToken);
     register({
       email,
       name,

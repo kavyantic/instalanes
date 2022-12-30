@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useRouter, withRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import BookRepairLayout from "../../components/Layout/BookRepairLayout";
 import mobile from "../../app/utils/brands.json";
 import issue from "../../app/utils/issues.json";
@@ -11,11 +11,12 @@ import { useDispatch } from "react-redux";
 import { setDetails } from "../../app/store/repairOrederSlice";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-export default function BookARepair({ options }) {
+function BookARepair({ options,router }) {
   const { colors, currentDate, issues, mobiles, timeSlots } = options;
-  const router = useRouter();
   const dispatch = useDispatch()
-  const [brandModel, setBrandModel] = useState([])
+  var {  defBrand,defModel, defIssues } = router.query
+
+console.log(defIssues);
 
   const brandRef = useRef(null)
   const modelRef = useRef(null)
@@ -23,6 +24,19 @@ export default function BookARepair({ options }) {
   const issuesRef = useRef(null)
   const timeSlotRef = useRef(null)
   const dateRef = useRef(null)
+  
+  const [brandModel, setBrandModel] = useState([])
+
+  const setModels = (brand) => {
+    setBrandModel(mobiles.find((m) => m.name == brand)?.models?.map((name) => ({ value: name, label: name })))
+
+  }
+
+
+  useEffect(() => {
+    setModels(brandRef.current?.getValue()[0]?.value)
+  }, [])
+
 
 
 
@@ -32,18 +46,19 @@ export default function BookARepair({ options }) {
     const model = modelRef.current?.getValue()[0]?.value
     const color = colorRef.current?.getValue()[0]?.value
     var issues = issuesRef.current?.getValue()
-    const timeSlotId  = timeSlotRef.current?.getValue()[0]?.value
-    
-    
-    if(!(brand && model && color && issues?.length>0 && timeSlotId)) return alert("Please enter all fields")
-    issues = issues.map(i=>i.value)
+    const timeSlotId = timeSlotRef.current?.getValue()[0]?.value
+
+
+
+    if (!(brand && model && color && issues?.length > 0 && timeSlotId)) return alert("Please enter all fields")
+    issues = issues.map(i => i.value)
     dispatch(setDetails({
       mobile: {
         brand, model, color
       },
       issues,
       timeSlotId,
-      repairDate:JSON.stringify(startDate).split("T")[0]
+      repairDate: JSON.parse(JSON.stringify(startDate)).split("T")[0]
     }))
     router.replace("/book-a-repair/address")
 
@@ -54,7 +69,7 @@ export default function BookARepair({ options }) {
   // this area is  for datepicker 
   const [startDate, setStartDate] = useState(new Date());
   const holidays = [
-    new Date (26, 12, 2022),
+    new Date(30, 12)
   ];
   const minDate = new Date();
   const maxDate = new Date(new Date().setDate(new Date().getDate() + 7))
@@ -63,15 +78,14 @@ export default function BookARepair({ options }) {
     <>
       <h2 className="font-extrabold text-4xl text-[#00000099] mb-8">Book a repair</h2>
       <div className="form_group">
-
         <form onSubmit={handleContinue}>
           <div className="grid grid-cols-12 gap-4 mb-8 traplace">
             <div className="col-span-12 md:col-span-6 multiseletform">
               <Creatable
-
                 ref={brandRef}
+                defaultValue={defBrand ? { label: defBrand, value: defBrand } : true}
                 options={mobiles.map(({ name }) => ({ value: name, label: name }))}
-                onChange={({ value }) => { (setBrandModel(mobiles.find((m) => m.name == value)?.models?.map((name) => ({ value: name, label: name })))) }}
+                onChange={({ value }) => { setModels(value) }}
                 placeholder="Select Brand"
                 className="book-form-container"
                 classNamePrefix="book-form"
@@ -79,6 +93,8 @@ export default function BookARepair({ options }) {
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform">
               <Creatable
+                defaultValue={defModel ? { label: defModel, value: defModel } : true}
+
                 ref={modelRef}
                 options={brandModel}
                 placeholder="Select Model"
@@ -97,9 +113,11 @@ export default function BookARepair({ options }) {
             </div>
             <div className="col-span-12 md:col-span-12 multiseletform">
               <Creatable
+                defaultValue={defIssues?defIssues.split(",").map(i=>({value:i,label:i})):[]}
+
                 ref={issuesRef}
                 options={issues.map(({ name }) => ({ value: name, label: name }))}
-                isMulti
+                isMulti={true}
                 placeholder="Issue with Device"
                 className="book-form-container"
                 classNamePrefix="book-form"
@@ -107,7 +125,8 @@ export default function BookARepair({ options }) {
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform relative">
               {/* <input type="date" name="" className="w-full black-glass-repair" id="" /> */}
-              <DatePicker selected={startDate} placeholderText="Enter Date" className="w-full black-glass-repair" onChange={(date = new Date()) => setStartDate(date)} minDate={minDate} maxDate={maxDate} excludeDates={[new Date("Dec 26, 2022")]}  dateFormat="MMMM d, yyyy"  />
+              <DatePicker selected={startDate} placeholderText="Enter Date" className="w-full black-glass-repair" onChange={(date = new Date()) => setStartDate(date)} minDate={minDate} maxDate={maxDate} excludeDates={holidays} dateFormat="MMMM d, yyyy" />
+
             </div>
             <div className="col-span-12 md:col-span-6 multiseletform">
               <Select
@@ -146,14 +165,16 @@ export default function BookARepair({ options }) {
     </>
   );
 }
+const BookARepairRouter = withRouter(BookARepair)
+export default BookARepairRouter
 
-BookARepair.getLayout = function (page) {
+BookARepairRouter.getLayout = function (page) {
   return <BookRepairLayout>{page}</BookRepairLayout>;
 };
 
 
 export async function getStaticProps() {
-  const res = await fetch('https://api.devicecure.in/data/repair')
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/data/repair')
   const options = await res.json()
   return {
     props: {
@@ -161,3 +182,6 @@ export async function getStaticProps() {
     },
   }
 }
+
+
+

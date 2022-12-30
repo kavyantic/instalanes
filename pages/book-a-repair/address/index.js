@@ -11,7 +11,6 @@ import BookRepairLayout from '../../../components/Layout/BookRepairLayout'
 
 
 const useAddress = () => {
-
     const router = useRouter()
     const dispatch = useDispatch()
     const [get, { data, error, isLoading }] = useLazyGetAddressQuery()
@@ -28,18 +27,16 @@ const useAddress = () => {
             get()
         }
     }, [deleted])
-    
-
     return [deleteAddress, { data, isLoading, deleting }]
 }
 
 export default function Address() {
     const router = useRouter()
     const dispatch = useDispatch()
+    const [selected, setSelected] = useState()
     const [deleteAddress, { data, isLoading, deleting }] = useAddress()
     useEffect(() => {
         if (data instanceof Array && data[0]?._id) setSelected(data[0]._id)
-
     }, [data])
     // const { data, error, isLoading } = useGetAddressQuery()
     // const [deleteAddress, { data: deleted, error: deletetionError, isLoading: deleting }] = useDeleteAddressMutation()
@@ -48,15 +45,12 @@ export default function Address() {
     //     if (error?.status == 404) router.replace('address/add')
     //     if (data instanceof Array && data[0]?._id) setSelected(data[0]._id)
     // }, [data, error])
-    const [selected, setSelected] = useState()
-
 
     const handleContinue = () => {
         dispatch(setAddressId(selected))
         dispatch(setAddress(data.find(ele=>ele._id==selected)))
         router.push('/book-a-repair/review')
     }
-
     return (
         <>
             <h2 className='font-light text-4xl text-darkLight mb-8 cursor-pointer'>Book a repair</h2>
